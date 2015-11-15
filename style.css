@@ -1,0 +1,163 @@
+/*search box map*/
+.controls {
+  margin-top: 10px;
+  border: 1px solid transparent;
+  border-radius: 2px 0 0 2px;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  height: 32px;
+  outline: none;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+#pac-input {
+  background-color: #fff;
+  font-family: Roboto;
+  font-size: 15px;
+  font-weight: 300;
+  margin-left: 12px;
+  padding: 0 11px 0 13px;
+  text-overflow: ellipsis;
+  width: 300px;
+}
+
+#pac-input:focus {
+  border-color: #4d90fe;
+}
+
+.pac-container {
+  font-family: Roboto;
+}
+
+#type-selector {
+  color: #fff;
+  background-color: #4d90fe;
+  padding: 5px 11px 0px 11px;
+}
+
+#type-selector label {
+  font-family: Roboto;
+  font-size: 13px;
+  font-weight: 300;
+}
+
+/*splitter*/
+#MySplitter {
+  height: 100%;
+  width: 100%;
+  position: fixed !important;
+}
+
+#TopPane {
+background: #EEE;
+    overflow: hidden;
+    min-height: 150px;
+    max-height: 600px;
+}
+
+#BottomPane {
+position: relative;
+    background: #FFF;
+    overflow: auto;
+    width: 100%;
+    margin: 10px 0px;
+}
+
+/*sidenav*/
+.menuBardemoBasicUsage .page-container {
+  background-color: #f1f1f1;
+  padding: 32px; }
+.menuBardemoBasicUsage .page {
+  margin: 0 auto;
+  background-color: white;
+  padding: 24px;
+  max-width: 680px;
+  box-shadow: 0px 1px 2px 1px rgba(0, 0, 0, 0.25); }
+.menuBardemoBasicUsage .page h1 {
+  text-align: center;
+  font-size: 1.8rem;
+  margin-top: 0;
+  font-weight: normal; }
+.menuBardemoBasicUsage .page p {
+  line-height: 1.6rem; }
+
+/*checkbox*/
+.checkboxdemoBasicUsage .checkboxDemo1 div {
+  clear: both; }
+.checkboxdemoBasicUsage .checkboxDemo1 md-checkbox {
+  float: left; }
+.checkboxdemoBasicUsage p {
+  padding-left: 8px; }
+.checkboxdemoBasicUsage fieldset.standard {
+  border-style: solid;
+  border-width: 1px; }
+.checkboxdemoBasicUsage legend {
+  color: #3F51B5; }
+.checkboxdemoBasicUsage legend code {
+  color: #3F51B5;
+  font-weight: normal; }
+.checkboxdemoBasicUsage .ipsum {
+  color: saddlebrown; }
+
+/*range-slider*/
+        .range-slider-container {
+            position: relative;
+            height: 100px;
+        }
+        .range-slider-container md-slider {
+            margin: 0;
+        }
+        .range-track-line {
+            position: absolute;
+            height: 2px;
+            top: 23px;
+            background-color: rgb(255, 64, 129);
+        }
+        .range-slider-container md-slider.md-default-theme.md-min .md-thumb:after {
+            background-color: rgb(255, 64, 129) !important;
+        }
+        .range-slider-left, .range-slider-right {
+            position: absolute;
+            top: 0px;
+        }
+        .range-slider-right {
+            right: 0px;
+        }
+        .range-slider-left md-slider .md-thumb-container {
+            transition: -webkit-transform 0s linear;
+            transition: transform 0s linear;
+        }
+        .range-slider-left md-slider.md-default-theme .md-track.md-track-fill {
+            background-color: rgba(188, 188, 188, 1) !important;
+        }
+        .range-slider-left md-slider.md-default-theme .md-track:not(.md-track-fill) {
+            background-color: rgb(255, 64, 129) !important;
+        }
+        .range-slider-container md-slider .md-thumb-container {
+            transition: -webkit-transform 0s linear;
+            transition: transform 0s linear;
+        }
+        .range-slider-container md-slider .md-track-container {
+            transition: -webkit-transform 0s linear;
+            transition: transform 0s linear;
+        }
+
+/*Card*/
+.carddemoBasicUsage md-card {
+  min-height: 150px; }
+
+/*font*/
+@font-face {
+    font-family: RobotoDraft-Regular;
+    src: url(RobotoDraft-Regular.ttf);
+}
+
+@font-face {
+    font-family: Roboto-Regular;
+    src: url(Roboto-Regular.ttf);
+}
+
+body {
+  font-family: Roboto-Regular;
+  font-size: 13px;
+}
