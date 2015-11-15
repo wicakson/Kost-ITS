@@ -154,10 +154,13 @@
 		      <div class="md-toolbar-tools" >
 		      	<div>
 		          <md-button class="md-icon-button" aria-label="Settings" ng-click="toggleLeft()" ng-hide="isOpenLeft()">
+		          	<md-tooltip md-direction="bottom">
+			          Menu
+			        </md-tooltip>
 		            <md-icon md-svg-icon="ic_search_white.svg"></md-icon>
 		          </md-button>
 		        </div>
-		        <div>
+		        <div style="width:100%;">
 		        	<h2 style="text-align:center;">
 				        <span>Kost ITS</span>
 				    </h2>
@@ -165,6 +168,9 @@
 		        <span flex></span>
 		        <div>
 		          <md-button class="md-icon-button" aria-label="Settings2" ng-click="toggleRight()" ng-hide="isOpenRight()" class="md-primary">
+		          	<md-tooltip md-direction="bottom">
+			          Menu Pencarian
+			        </md-tooltip>
 		            <md-icon md-svg-icon="ic_search_white.svg"></md-icon>
 		          </md-button>
 		        </div>
@@ -253,99 +259,111 @@
         </md-content>
         
         <md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left">
-          <md-toolbar class="md-theme-left">
-            <h1 class="md-toolbar-tools">Cari</h1>
-          </md-toolbar>
-          <md-content ng-controller="LeftCtrl" layout-padding>
-            <div ng-controller="SelectOptGroupController">
-	            Lokasi
-	            <md-select ng-model="kecamatan" placeholder="Kecamatan">
-		          <md-option ng-repeat="kecamatan in listkecamatan" value="{{kecamatan}}">{{kecamatan}}</md-option>
-		        </md-select>
-		        <md-select ng-model="kelurahan" placeholder="Kelurahan">
-		          <md-option ng-repeat="kelurahan in listkelurahan" value="{{kelurahan}}">{{kelurahan}}</md-option>
-		        </md-select>
-	        </div>
-            Harga
-            <md-slider flex ng-model="color.blue" floor="0" min="100" max="255" aria-label="blue" id="blue-slider" class="md-primary">
-      		</md-slider>
-      		<div flex="20" layout layout-align="center center">
-		    	<input flex type="number" ng-model="color.blue" aria-label="blue" aria-controls="blue-slider">
-		    </div>
-		    <div ng-controller="Checkbox">
-	            Fasilitas
-	            <md-checkbox md-no-ink aria-label="Checkbox No Ink" ng-model="data.cb1" class="md-primary">
-		          Air Conditionair
-		        </md-checkbox>
-		        <md-checkbox md-no-ink aria-label="Checkbox No Ink" ng-model="data.cb2" class="md-primary">
-		          TV
-		        </md-checkbox>
-		        <md-checkbox md-no-ink aria-label="Checkbox No Ink" ng-model="data.cb3" class="md-primary">
-		          TV Kabel
-		        </md-checkbox>
-		        <md-checkbox md-no-ink aria-label="Checkbox No Ink" ng-model="data.cb4" class="md-primary">
-		          Kamar Mandi Dalam
-		        </md-checkbox>
-		        <md-checkbox md-no-ink aria-label="Checkbox No Ink" ng-model="data.cb5" class="md-primary">
-		          Internet
-		        </md-checkbox>
-		        <md-checkbox md-no-ink aria-label="Checkbox No Ink" ng-model="data.cb6" class="md-primary">
-		          Meja dan Kursi
-		        </md-checkbox>
-		        <md-checkbox md-no-ink aria-label="Checkbox No Ink" ng-model="data.cb7" class="md-primary">
-		          Kipas Angin
-		        </md-checkbox>
-		        <md-checkbox md-no-ink aria-label="Checkbox No Ink" ng-model="data.cb8" class="md-primary">
-		          Lemari
-		        </md-checkbox>
-		        <md-checkbox md-no-ink aria-label="Checkbox No Ink" ng-model="data.cb9" class="md-primary">
-		          Kulkas
-		        </md-checkbox>
-		        <md-checkbox md-no-ink aria-label="Checkbox No Ink" ng-model="data.cb10" class="md-primary">
-		          Air Panas
-		        </md-checkbox>
-		        Jenis Penghuni
-		        <md-checkbox md-no-ink aria-label="Checkbox No Ink" ng-model="data.cb11" class="md-primary">
-		          Khusus Perempuan
-		        </md-checkbox>
-		        <md-checkbox md-no-ink aria-label="Checkbox No Ink" ng-model="data.cb12" class="md-primary">
-		          Khusus Laki-laki
-		        </md-checkbox>
-		        <md-checkbox md-no-ink aria-label="Checkbox No Ink" ng-model="data.cb13" class="md-primary">
-		          Perempuan Laki-laki
-		        </md-checkbox>
-		        Periode
-		        <md-checkbox md-no-ink aria-label="Checkbox No Ink" ng-model="data.cb14" class="md-primary">
-		          Harian
-		        </md-checkbox>
-		        <md-checkbox md-no-ink aria-label="Checkbox No Ink" ng-model="data.cb15" class="md-primary">
-		          Mingguan
-		        </md-checkbox>
-		        <md-checkbox md-no-ink aria-label="Checkbox No Ink" ng-model="data.cb16" class="md-primary">
-		          Bulanan
-		        </md-checkbox>
-		        <md-checkbox md-no-ink aria-label="Checkbox No Ink" ng-model="data.cb17" class="md-primary">
-		          Tahunan
-		        </md-checkbox>
-		    </div>
-          </md-content>
+          <md-toolbar class="md-theme-light">
+		        <h1 class="md-toolbar-tools">Kost ITS</h1>
+		    </md-toolbar>
+		    <md-content ng-controller="RightCtrl">
+		    	<md-menu-content style="padding:0px;">
+		    		<md-menu-item>
+			          <md-button>
+			            <md-icon md-svg-icon="ic_clear_black.svg" md-menu-align-target></md-icon>
+			            	Login
+			          </md-button>
+			        </md-menu-item>
+			        <md-menu-item>
+			          <md-button>
+			            <md-icon md-svg-icon="ic_clear_black.svg" md-menu-align-target></md-icon>
+			            	Home
+			          </md-button>
+			        </md-menu-item>
+			        <md-menu-item>
+			          <md-button>
+			            <md-icon md-svg-icon="ic_clear_black.svg" md-menu-align-target></md-icon>
+			            	About Us
+			          </md-button>
+			        </md-menu-item>
+			    </md-menu-content>
+		    </md-content>
         </md-sidenav>
         
         <md-sidenav class="md-sidenav-right md-whiteframe-z2" md-component-id="right">
-		    <md-toolbar class="md-theme-light">
-		        <h1 class="md-toolbar-tools">Sidenav Right</h1>
-		    </md-toolbar>
-		    <md-content ng-controller="RightCtrl" layout-padding>
-		        <form>
-		        	<md-input-container>
-			            <label for="testInput">Test input</label>
-			            <input type="text" id="testInput" ng-model="data" md-autofocus>
-		          	</md-input-container>
-		        </form>
-		        <md-button ng-click="close()" class="md-primary">
-		        	Close Sidenav Right
-		        </md-button>
-		    </md-content>
+        	<md-toolbar class="md-theme-left">
+	            <h1 class="md-toolbar-tools">Pencarian Lanjut</h1>
+	          </md-toolbar>
+	          <md-content ng-controller="LeftCtrl" layout-padding>
+	            <div ng-controller="SelectOptGroupController">
+		            Lokasi
+		            <md-select ng-model="kecamatan" placeholder="Kecamatan">
+			          <md-option ng-repeat="kecamatan in listkecamatan" value="{{kecamatan}}">{{kecamatan}}</md-option>
+			        </md-select>
+			        <md-select ng-model="kelurahan" placeholder="Kelurahan">
+			          <md-option ng-repeat="kelurahan in listkelurahan" value="{{kelurahan}}">{{kelurahan}}</md-option>
+			        </md-select>
+		        </div>
+	            Harga
+	            <md-slider flex ng-model="color.blue" floor="0" min="100" max="255" aria-label="blue" id="blue-slider" class="md-primary">
+	      		</md-slider>
+	      		<div flex="20" layout layout-align="center center">
+			    	<input flex type="number" ng-model="color.blue" aria-label="blue" aria-controls="blue-slider">
+			    </div>
+			    <div ng-controller="Checkbox">
+		            Fasilitas
+		            <md-checkbox md-no-ink aria-label="Checkbox No Ink" ng-model="data.cb1" class="md-primary">
+			          Air Conditionair
+			        </md-checkbox>
+			        <md-checkbox md-no-ink aria-label="Checkbox No Ink" ng-model="data.cb2" class="md-primary">
+			          TV
+			        </md-checkbox>
+			        <md-checkbox md-no-ink aria-label="Checkbox No Ink" ng-model="data.cb3" class="md-primary">
+			          TV Kabel
+			        </md-checkbox>
+			        <md-checkbox md-no-ink aria-label="Checkbox No Ink" ng-model="data.cb4" class="md-primary">
+			          Kamar Mandi Dalam
+			        </md-checkbox>
+			        <md-checkbox md-no-ink aria-label="Checkbox No Ink" ng-model="data.cb5" class="md-primary">
+			          Internet
+			        </md-checkbox>
+			        <md-checkbox md-no-ink aria-label="Checkbox No Ink" ng-model="data.cb6" class="md-primary">
+			          Meja dan Kursi
+			        </md-checkbox>
+			        <md-checkbox md-no-ink aria-label="Checkbox No Ink" ng-model="data.cb7" class="md-primary">
+			          Kipas Angin
+			        </md-checkbox>
+			        <md-checkbox md-no-ink aria-label="Checkbox No Ink" ng-model="data.cb8" class="md-primary">
+			          Lemari
+			        </md-checkbox>
+			        <md-checkbox md-no-ink aria-label="Checkbox No Ink" ng-model="data.cb9" class="md-primary">
+			          Kulkas
+			        </md-checkbox>
+			        <md-checkbox md-no-ink aria-label="Checkbox No Ink" ng-model="data.cb10" class="md-primary">
+			          Air Panas
+			        </md-checkbox>
+			        Jenis Penghuni
+			        <md-checkbox md-no-ink aria-label="Checkbox No Ink" ng-model="data.cb11" class="md-primary">
+			          Khusus Perempuan
+			        </md-checkbox>
+			        <md-checkbox md-no-ink aria-label="Checkbox No Ink" ng-model="data.cb12" class="md-primary">
+			          Khusus Laki-laki
+			        </md-checkbox>
+			        <md-checkbox md-no-ink aria-label="Checkbox No Ink" ng-model="data.cb13" class="md-primary">
+			          Perempuan Laki-laki
+			        </md-checkbox>
+			        Periode
+			        <md-checkbox md-no-ink aria-label="Checkbox No Ink" ng-model="data.cb14" class="md-primary">
+			          Harian
+			        </md-checkbox>
+			        <md-checkbox md-no-ink aria-label="Checkbox No Ink" ng-model="data.cb15" class="md-primary">
+			          Mingguan
+			        </md-checkbox>
+			        <md-checkbox md-no-ink aria-label="Checkbox No Ink" ng-model="data.cb16" class="md-primary">
+			          Bulanan
+			        </md-checkbox>
+			        <md-checkbox md-no-ink aria-label="Checkbox No Ink" ng-model="data.cb17" class="md-primary">
+			          Tahunan
+			        </md-checkbox>
+			    </div>
+	          </md-content>
+		    
 	    </md-sidenav>
       </section>
     </div>
