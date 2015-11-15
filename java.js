@@ -134,7 +134,26 @@ app.controller('AppCtrl', function ($scope, $timeout, $mdSidenav, $log) {
       ];
   })
   .controller('CardCtrl', function($scope) {
-    $scope.imagePath = 'image.png';
+    $scope.listKost = [
+          {title:'Kost Exclusive Kemang Eleven Di Kemang Cilandak Bangka Jakarta',description:'Nyaman, Aman, Exclusive',
+           address:'Jl Kemang Raya No 11 Jakarta Selatan',price:'Rp. 4.000.000 s/d 9.500.000 *Bulanan',
+           imagePath:'kamar1.jpg'},
+          {title:'Kost Dekat Itc Fatmawati Madrasah/24 Cilandak Jakarta Selatan',description:'Nyaman, Aman, Exclusive',
+           address:'Jl Kemang Raya No 11 Jakarta Selatan',price:'Rp. 200.000 * Harian Rp. 1.800.000 s/d 2.500.000 * Bulanan',
+           imagePath:'kamar2.jpg'},
+          {title:'Koi Residence Exclusive Kost Jl Tanah Kusir 2/18 Gandaria Utara Jakarta',description:'Nyaman, Aman, Exclusive',
+           address:'Jl. Tanah Kusir 2 No 18, Jakarta Selatan Dekat Gandaria City Pondok Indah Mal',price:'Rp. 2.200.000 s/d 3.800.000 * Bulanan',
+           imagePath:'kamar3.jpg'},
+          {title:'Kost Exclusive Kemang Eleven Di Kemang Cilandak Bangka Jakarta',description:'Nyaman, Aman, Exclusive',
+           address:'Jl Kemang Raya No 11 Jakarta Selatan',price:'Rp. 4.000.000 s/d 9.500.000 *Bulanan',
+           imagePath:'kamar1.jpg'},
+          {title:'Kost Dekat Itc Fatmawati Madrasah/24 Cilandak Jakarta Selatan',description:'Nyaman, Aman, Exclusive',
+           address:'Jl Kemang Raya No 11 Jakarta Selatan',price:'Rp. 200.000 * Harian Rp. 1.800.000 s/d 2.500.000 * Bulanan',
+           imagePath:'kamar2.jpg'},
+          {title:'Koi Residence Exclusive Kost Jl Tanah Kusir 2/18 Gandaria Utara Jakarta',description:'Nyaman, Aman, Exclusive',
+           address:'Jl. Tanah Kusir 2 No 18, Jakarta Selatan Dekat Gandaria City Pondok Indah Mal',price:'Rp. 2.200.000 s/d 3.800.000 * Bulanan',
+           imagePath:'kamar3.jpg'}
+                      ];
   })
 ;
 

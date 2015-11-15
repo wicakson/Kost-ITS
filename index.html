@@ -153,7 +153,7 @@
         	<md-toolbar>
 		      <div class="md-toolbar-tools" >
 		      	<div>
-		          <md-button class="md-icon-button" aria-label="Settings" ng-click="toggleLeft()" ng-hide="isOpenLeft()">
+		          <md-button class="md-icon-button" aria-label="Settings" ng-click="toggleLeft()">
 		          	<md-tooltip md-direction="bottom">
 			          Menu
 			        </md-tooltip>
@@ -167,7 +167,7 @@
 				</div>
 		        <span flex></span>
 		        <div>
-		          <md-button class="md-icon-button" aria-label="Settings2" ng-click="toggleRight()" ng-hide="isOpenRight()" class="md-primary">
+		          <md-button class="md-icon-button" aria-label="Settings2" ng-click="toggleRight()" class="md-primary">
 		          	<md-tooltip md-direction="bottom">
 			          Menu Pencarian
 			        </md-tooltip>
@@ -177,9 +177,8 @@
 		      </div>
     		</md-toolbar>
     		
-    		<div id="wrapper">
-    			<br>
-	    		<div style="text-align:center;">
+    		<div class="row" style="margin:0px;">
+	    		<div class="col-md-12" style="text-align:center;">
 	    			<md-button id="add_google_map" class="md-raised" onclick="loadScript()">
 	    				<md-icon md-svg-icon="ic_add_black.svg"></md-icon>
 	    				Add Map
@@ -197,9 +196,11 @@
 			          	Clear Street View
 			        </md-button>
 			    </div>
+			    <!--
 			    <div style="text-align:center;">
 				    <input id="pac-input" class="controls" type="text" placeholder="Search Box">
 				    <md-card>
+				    	
 				    	<div id="MySplitter">
 				    		<div id="TopPane">
 					    		<div id="googleMap" style="width:100%;padding-bottom: 56.25%;max-padding-bottom:500px;" ></div>
@@ -208,52 +209,27 @@
 					    		<div id="pano" style="width:100%;padding-bottom: 56.25%;max-padding-bottom:500px;"></div>
 					    	</div>
 				    	</div>
+				    	
 				    </md-card>
 			    </div>
-    			<div ng-controller="CardCtrl" ng-cloak>
-					<md-card class="col-sm-3" style="padding:15px;">
-				      <img ng-src="{{imagePath}}" class="md-card-image" alt="Washed Out">
-				      <md-card-content>
-				        <h2 class="md-title">Paracosm</h2>
-				        <p>
-				          The titles of Washed Out's breakthrough song and the first single from Paracosm share the
-				          two most important words in Ernest Greene's musical language: feel it. It's a simple request, as well...
-				        </p>
-				      </md-card-content>
-				      <md-card-actions layout="row" layout-align="end center">
-				        <md-button>Action 1</md-button>
-				        <md-button>Action 2</md-button>
-				      </md-card-actions>
-				    </md-card>
-				    <md-card class="col-sm-3" style="padding:15px;">
-				      <img ng-src="{{imagePath}}" class="md-card-image" alt="Washed Out">
-				      <md-card-content>
-				        <h2 class="md-title">Paracosm</h2>
-				        <p>
-				          The titles of Washed Out's breakthrough song and the first single from Paracosm share the
-				          two most important words in Ernest Greene's musical language: feel it. It's a simple request, as well...
-				        </p>
-				      </md-card-content>
-				      <md-card-actions layout="row" layout-align="end center">
-				        <md-button>Action 1</md-button>
-				        <md-button>Action 2</md-button>
-				      </md-card-actions>
-				    </md-card>
-				    <md-card class="col-sm-3" style="padding:15px;">
-				      <img ng-src="{{imagePath}}" class="md-card-image" alt="Washed Out">
-				      <md-card-content>
-				        <h2 class="md-title">Paracosm</h2>
-				        <p>
-				          The titles of Washed Out's breakthrough song and the first single from Paracosm share the
-				          two most important words in Ernest Greene's musical language: feel it. It's a simple request, as well...
-				        </p>
-				      </md-card-content>
-				      <md-card-actions layout="row" layout-align="end center">
-				        <md-button>Action 1</md-button>
-				        <md-button>Action 2</md-button>
-				      </md-card-actions>
-				    </md-card>
-			    </div>
+			    -->
+	    		<div class="col-sm-12" ng-controller="CardCtrl">
+	    			<div ng-repeat="x in listKost" class="col-sm-4" style="margin:0px;padding:0px;">
+						<md-card>
+					      <img ng-src="{{x.imagePath}}" class="md-card-image" alt="Washed Out">
+					      <md-card-content>
+					        <h2 class="md-title">{{x.title}}</h2>
+					        <p>{{x.description}}</p>
+					        <p>{{x.address}}</p>
+					        <p>{{x.price}}</p>
+					      </md-card-content>
+					      <md-card-actions layout="row" layout-align="end center">
+					        <md-button>Action 1</md-button>
+					        <md-button>Action 2</md-button>
+					      </md-card-actions>
+					    </md-card>
+					</div>
+				</div>
 			</div>
 			
         </md-content>
@@ -267,7 +243,7 @@
 		    		<md-menu-item>
 			          <md-button>
 			            <md-icon md-svg-icon="ic_clear_black.svg" md-menu-align-target></md-icon>
-			            	Login
+			            	Akun
 			          </md-button>
 			        </md-menu-item>
 			        <md-menu-item>
@@ -279,7 +255,19 @@
 			        <md-menu-item>
 			          <md-button>
 			            <md-icon md-svg-icon="ic_clear_black.svg" md-menu-align-target></md-icon>
-			            	About Us
+			            	Contact Us
+			          </md-button>
+			        </md-menu-item>
+			        <md-menu-item>
+			          <md-button>
+			            <md-icon md-svg-icon="ic_clear_black.svg" md-menu-align-target></md-icon>
+			            	Log in
+			          </md-button>
+			        </md-menu-item>
+			        <md-menu-item>
+			          <md-button>
+			            <md-icon md-svg-icon="ic_clear_black.svg" md-menu-align-target></md-icon>
+			            	Log out
 			          </md-button>
 			        </md-menu-item>
 			    </md-menu-content>
