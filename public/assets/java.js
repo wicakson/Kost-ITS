@@ -33,8 +33,10 @@ $(document).ready(function(){
 
 'use strict';
 //sidenav
-
-var app = angular.module('sidenavDemo1', ['ngMaterial']);
+var app = angular.module('sidenavDemo1', ['ngMaterial'], function($interpolateProvider) {
+        $interpolateProvider.startSymbol('<%');
+        $interpolateProvider.endSymbol('%>');
+    });
 app.controller('AppCtrl', function ($scope, $timeout, $mdSidenav, $log) {
     $scope.toggleLeft = buildDelayedToggler('left');
     $scope.toggleRight = buildDelayedToggler('right');

@@ -1,36 +1,36 @@
 <html lang="en">
   <head>
   	<title>Kost ITS</title>
-  	<link rel="icon" href="logo.png" type="image/gif" sizes="16x16">
-    <script src="jquery-2.1.4.min.js"></script>
-    <link rel="stylesheet" href="bootstrap.min.css">
-    <script src="bootstrap.min.js"></script>
+  	<link rel="icon" href="{{url()}}/assets/logo.png" type="image/gif" sizes="16x16">
+    <script src="{{url()}}/assets/jquery-2.1.4.min.js"></script>
+    <link rel="stylesheet" href="{{url()}}/assets/bootstrap.min.css">
+    <script src="{{url()}}/assets/bootstrap.min.js"></script>
 
     <!--
-    <link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/angular_material/0.11.1/angular-material.min.css">
+    <link rel="stylesheet" href="{{url()}}/assets///ajax.googleapis.com/ajax/libs/angular_material/0.11.1/angular-material.min.css">
     -->
     <!-- Angular Material Dependencies -->
     <!--
-    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
-    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-messages.js"></script>
-    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-animate.min.js"></script>
-    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-aria.min.js"></script>
-    <script src="//ajax.googleapis.com/ajax/libs/angular_material/0.11.1/angular-material.min.js"></script>
+    <script src="{{url()}}/assets///ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
+    <script src="{{url()}}/assets///ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-messages.js"></script>
+    <script src="{{url()}}/assets///ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-animate.min.js"></script>
+    <script src="{{url()}}/assets///ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-aria.min.js"></script>
+    <script src="{{url()}}/assets///ajax.googleapis.com/ajax/libs/angular_material/0.11.1/angular-material.min.js"></script>
 	-->
-    <!--<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">-->
+    <!--<link href="{{url()}}/assets/https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">-->
 
     
-    <link rel="stylesheet" href="angular-material.min.css">
-    <script src="angular.min.js"></script>
-    <script src="angular-material.min.js"></script>
-    <script src="angular-aria.min.js"></script>
-    <script src="angular-animate.min.js"></script>
+    <link rel="stylesheet" href="{{url()}}/assets/angular-material.min.css">
+    <script src="{{url()}}/assets/angular.min.js"></script>
+    <script src="{{url()}}/assets/angular-material.min.js"></script>
+    <script src="{{url()}}/assets/angular-aria.min.js"></script>
+    <script src="{{url()}}/assets/angular-animate.min.js"></script>
 
-    <link rel="stylesheet" href="jquery.splitter.css">
-    <script src="jquery.splitter.js"></script>
+    <link rel="stylesheet" href="{{url()}}/assets/jquery.splitter.css">
+    <script src="{{url()}}/assets/jquery.splitter.js"></script>
 
-    <link rel="stylesheet" href="style.css">
-    <script src="java.js"></script>
+    <link rel="stylesheet" href="{{url()}}/assets/style.css">
+    <script src="{{url()}}/assets/java.js"></script>
 
     <script>
     	var map;
@@ -157,7 +157,7 @@
 		          	<md-tooltip md-direction="right">
 			          Menu
 			        </md-tooltip>
-		            <md-icon md-svg-icon="ic_menu_white.svg"></md-icon>
+		            <md-icon md-svg-icon="{{url()}}/assets/ic_menu_white.svg"></md-icon>
 		          </md-button>
 		        </div>
 		        <div style="width:100%;">
@@ -171,7 +171,7 @@
 		          	<md-tooltip md-direction="left">
 			          Menu Pencarian
 			        </md-tooltip>
-		            <md-icon md-svg-icon="ic_searchmenu_white.svg"></md-icon>
+		            <md-icon md-svg-icon="{{url()}}/assets/ic_searchmenu_white.svg"></md-icon>
 		          </md-button>
 		        </div>
 		      </div>
@@ -216,12 +216,12 @@
 	    		<div class="col-sm-12" ng-controller="CardCtrl">
 	    			<div ng-repeat="x in listKost" class="col-sm-4" style="margin:0px;padding:0px;">
 						<md-card>
-					      <img ng-src="{{x.imagePath}}" class="md-card-image" alt="Washed Out">
+					      <img ng-src="{{url()}}/assets/<%x.imagePath%>" class="md-card-image" alt="Washed Out">
 					      <md-card-content>
-					        <h2 class="md-title">{{x.title}}</h2>
-					        <p>{{x.description}}</p>
-					        <p>{{x.address}}</p>
-					        <p>{{x.price}}</p>
+					        <h2 class="md-title"><%x.title%></h2>
+					        <p><%x.description%></p>
+					        <p><%x.address%></p>
+					        <p><%x.price%></p>
 					      </md-card-content>
 					      <md-card-actions layout="row" layout-align="end center">
 					        <md-button>Action 1</md-button>
@@ -294,18 +294,18 @@
 			        	md-min-length="0"
 			        	placeholder="What is your favorite US state?">
 				        <md-item-template>
-				        	<span md-highlight-text="ctrl.searchText" md-highlight-flags="^i">{{item.display}}</span>
+				        	<span md-highlight-text="ctrl.searchText" md-highlight-flags="^i"><%item.display%></span>
 				        </md-item-template>
 			        	<md-not-found>
-				          No states matching "{{ctrl.searchText}}" were found.
+				          No states matching "<%ctrl.searchText%>" were found.
 				          <a ng-click="ctrl.newState(ctrl.searchText)">Create a new one!</a>
 				        </md-not-found>
 			        </md-autocomplete>
 		            <md-select ng-model="kecamatan" placeholder="Kecamatan">
-			          <md-option ng-repeat="kecamatan in listkecamatan" value="{{kecamatan}}">{{kecamatan}}</md-option>
+			          <md-option ng-repeat="kecamatan in listkecamatan" value="<%kecamatan%>"><%kecamatan%></md-option>
 			        </md-select>
 			        <md-select ng-model="kelurahan" placeholder="Kelurahan">
-			          <md-option ng-repeat="kelurahan in listkelurahan" value="{{kelurahan}}">{{kelurahan}}</md-option>
+			          <md-option ng-repeat="kelurahan in listkelurahan" value="<%kelurahan%>"><%kelurahan%></md-option>
 			        </md-select>
 		        </div>
 	            Harga
