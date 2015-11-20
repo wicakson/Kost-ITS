@@ -70,9 +70,12 @@
 	    			<h2 class="md-title" style="text-align:center;">For blablabla</h2>
 					<md-card>
 					    <md-card-content>
-					        <p>	Wisma 77 tower 2, 9th floor<br>Jl. Letjen S. Parman Kav. 77<br>
-								Slipi, Jakarta Barat 11410 Indonesia<br>PT. Mediapura Digital Indonesia<br>
-								Telp +6221 296 75920 Ext 134</p>
+					        <p>
+					        	@foreach($contact as $contact)
+					        		{{$contact->isi}}
+					        	@endforeach
+
+					        </p>
 					      </md-card-content>
 					    </md-card>
 				</div>

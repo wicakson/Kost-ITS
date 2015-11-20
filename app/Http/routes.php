@@ -23,9 +23,7 @@ Route::get('tes', function () {
     return view('waca');
 });
 
-Route::get('contact-us', function () {
-    return view('contact-us');
-});
+Route::get('contact-us', 'view@contact_us');
 
 Route::get('search', function () {
     return view('search');
