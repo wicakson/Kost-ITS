@@ -1,8 +1,6 @@
 <html lang="en">
   <head>
   	<title>Kost ITS</title>
-  	<meta charset="utf-8">
-  	<meta name="viewport" content="width=device-width, initial-scale=1">
   	<link rel="icon" href="{{url()}}/assets/logo.png" type="image/gif" sizes="16x16">
     <script src="{{url()}}/assets/jquery-2.1.4.min.js"></script>
     <link rel="stylesheet" href="{{url()}}/assets/bootstrap.min.css">
@@ -28,16 +26,133 @@
     <script src="{{url()}}/assets/angular-aria.min.js"></script>
     <script src="{{url()}}/assets/angular-animate.min.js"></script>
 
+    <link rel="stylesheet" href="{{url()}}/assets/jquery.splitter.css">
+    <script src="{{url()}}/assets/jquery.splitter.js"></script>
+
     <link href="{{url()}}/assets/nouislider.min.css" rel="stylesheet">
     <script src="{{url()}}/assets/nouislider.min.js"></script>
 
     <link rel="stylesheet" href="{{url()}}/assets/style.css">
     <script src="{{url()}}/assets/java.js"></script>
+
+    <script>
+    	var map;
+    	var myCenter;
+    	var mapProp;
+    	var map;
+    	var marker=[];
+    	var infowindow;
+    	var panorama;
+    	var cek=0;
+
+		function initialize()
+		{
+			myCenter = new google.maps.LatLng(-7.27075, 112.79546);
+
+		  	mapProp = {
+			    center: myCenter,
+			    zoom:18,
+			    draggable: true,
+      			scrollwheel: false,
+      			mapTypeControl: false,
+			    mapTypeId: google.maps.MapTypeId.ROADMAP
+		  	};
+
+		  	map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
+
+		  	panorama = new google.maps.StreetViewPanorama(
+			    document.getElementById('pano'), {
+			        position: myCenter,
+			        pov: {
+			          heading: 34,
+			          pitch: 10
+			        }
+				}
+			);
+			map.setStreetView(panorama);
+
+			// Create the search box and link it to the UI element.
+			var input = document.getElementById('pac-input');
+			var searchBox = new google.maps.places.SearchBox(input);
+			map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+
+			// Bias the SearchBox results towards current map's viewport.
+			map.addListener('bounds_changed', function() {
+			    searchBox.setBounds(map.getBounds());
+			});
+
+			// [START region_getplaces]
+			// Listen for the event fired when the user selects a prediction and retrieve
+			// more details for that place.
+			searchBox.addListener('places_changed', function() {
+				var places = searchBox.getPlaces();
+
+				if (places.length == 0) {
+				    return;
+				}
+
+				// Clear out the old markers.
+				marker.forEach(function(marker) {
+				    marker.setMap(null);
+				});
+				marker = [];
+
+				// For each place, get the icon, name and location.
+				var bounds = new google.maps.LatLngBounds();
+				places.forEach(function(place) {
+					var icon = {
+				        size: new google.maps.Size(71, 71),
+				        origin: new google.maps.Point(0, 0),
+				        anchor: new google.maps.Point(17, 34),
+				        scaledSize: new google.maps.Size(25, 25)
+				    };
+
+				    // Create a marker for each place.
+				    marker.push(new google.maps.Marker({
+				        map: map,
+				        icon: icon,
+				        title: place.name,
+				        position: place.geometry.location
+				    }));
+
+				    if (place.geometry.viewport) {
+				        // Only geocodes have viewport.
+				        bounds.union(place.geometry.viewport);
+				    }
+				    else {
+				        bounds.extend(place.geometry.location);
+				    }
+				});
+				map.fitBounds(bounds);
+			});
+		}
+
+		var script;
+
+		function loadScript()
+		{
+			if(cek==0)
+			{
+				script = document.createElement("script");
+			  	script.type = "text/javascript";
+			  	script.src = "http://maps.googleapis.com/maps/api/js?key=&signed_in=true&sensor=false&libraries=places&callback=initialize";
+			  	document.body.appendChild(script);
+			  	cek=1;
+			}
+			else
+				return;
+		}
+
+		function codeAddress()
+		{
+
+		}
+	</script>
   </head>
   <body layout="column">
     <div ng-app="sidenavDemo1" ng-controller="AppCtrl" layout="column" style="height:100%;" ng-cloak >
       <section layout="row" flex>
-        <md-content style="width:100%;">
+        <md-content>
         	<md-toolbar>
 		      <div class="md-toolbar-tools" >
 		      	<div>
@@ -66,118 +181,57 @@
     		</md-toolbar>
     		
     		<div class="row" style="margin:0px;">
-	    		<br>
-	    		<div class="col-sm-6" ng-controller="CardCtrl">
-	    			<h1 style="text-align:center;">Our Staff Pick</h1>
-					<md-card>
-					    <md-card-content style="padding:0px;">
-						  <div id="myCarousel" class="carousel slide" data-ride="carousel">
-						    <!-- Indicators -->
-						    <ol class="carousel-indicators" style="bottom:0%;height:3%;">
-						      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-						      <li data-target="#myCarousel" data-slide-to="1"></li>
-						      <li data-target="#myCarousel" data-slide-to="2"></li>
-						      <li data-target="#myCarousel" data-slide-to="3"></li>
-						    </ol>
-
-						    <!-- Wrapper for slides -->
-						    <div class="carousel-inner" role="listbox">
-
-						      <div class="item active">
-						        <img src="{{url()}}/assets/kamar1.jpg" alt="Chania" width="100%">
-						        <div class="carousel-caption" style="background-color: rgba(17,16,16,0.5);left:0%;right:0%;bottom:0%;padding-top: 0%;padding-bottom: 3%;">
-						          <h3 style="margin:1%;">Kost Exclusive Kemang Eleven Di Kemang Cilandak Bangka Jakarta</h3>
-						          <p>Nyaman, Aman, Exclusive | Rp. 4.000.000 s/d 9.500.000 *Bulanan</p>
-						          <p>Jl Kemang Raya No 11 Jakarta Selatan</p>
-						        </div>
-						      </div>
-
-						      <div class="item">
-						        <img src="{{url()}}/assets/kamar2.jpg" alt="Chania" width="100%">
-						        <div class="carousel-caption" style="background-color: rgba(17,16,16,0.5);left:0%;right:0%;bottom:0%;padding-top: 0%;padding-bottom: 3%;">
-						          <h3 style="margin:1%;">Kost Dekat Itc Fatmawati Madrasah/24 Cilandak Jakarta Selatan</h3>
-						          <p>Nyaman, Aman, Exclusive | Rp. 200.000 * Harian Rp. 1.800.000 s/d 2.500.000 * Bulanan</p>
-						          <p>Jl Kemang Raya No 11 Jakarta Selatan</p>
-						        </div>
-						      </div>
-						    
-						      <div class="item">
-						        <img src="{{url()}}/assets/kamar3.jpg" alt="Flower" width="100%">
-						        <div class="carousel-caption" style="background-color: rgba(17,16,16,0.5);left:0%;right:0%;bottom:0%;padding-top: 0%;padding-bottom: 3%;">
-						          <h3 style="margin:1%;">Koi Residence Exclusive Kost Jl Tanah Kusir 2/18 Gandaria Utara Jakarta</h3>
-						          <p>Nyaman, Aman, Exclusive | Rp. 2.200.000 s/d 3.800.000 * Bulanan</p>
-						          <p>Jl. Tanah Kusir 2 No 18, Jakarta Selatan Dekat Gandaria City Pondok Indah Mal</p>
-						        </div>
-						      </div>
-
-						      <div class="item">
-						        <img src="{{url()}}/assets/kamar2.jpg" alt="Flower" width="100%">
-						        <div class="carousel-caption" style="background-color: rgba(17,16,16,0.5);left:0%;right:0%;bottom:0%;padding-top: 0%;padding-bottom: 3%;">
-						          <h3 style="margin:1%;">Flowers</h3>
-						          <p>Nyaman, Aman, Exclusive | Rp. 4.000.000 s/d 9.500.000 *Bulanan</p>
-						          <p>Jl Kemang Raya No 11 Jakarta Selatan</p>
-						        </div>
-						      </div>
-						    </div>
-						  </div>
-					    </md-card-content>
-					</md-card>
-				</div>
-				<div class="col-sm-6" ng-controller="CardCtrl">
-					<h1 style="text-align:center;">Favorites</h1>
-					<md-card>
-					    <md-card-content style="padding:0px;">
-						  <div id="myCarousel" class="carousel slide" data-ride="carousel">
-						    <!-- Indicators -->
-						    <ol class="carousel-indicators" style="bottom:0%;height:3%;">
-						      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-						      <li data-target="#myCarousel" data-slide-to="1"></li>
-						      <li data-target="#myCarousel" data-slide-to="2"></li>
-						      <li data-target="#myCarousel" data-slide-to="3"></li>
-						    </ol>
-
-						    <!-- Wrapper for slides -->
-						    <div class="carousel-inner" role="listbox">
-
-						      <div class="item active">
-						        <img src="{{url()}}/assets/kamar1.jpg" alt="Chania" width="100%">
-						        <div class="carousel-caption" style="background-color: rgba(17,16,16,0.5);left:0%;right:0%;bottom:0%;padding-top: 0%;padding-bottom: 3%;">
-						          <h3 style="margin:1%;">Kost Exclusive Kemang Eleven Di Kemang Cilandak Bangka Jakarta</h3>
-						          <p>Nyaman, Aman, Exclusive | Rp. 4.000.000 s/d 9.500.000 *Bulanan</p>
-						          <p>Jl Kemang Raya No 11 Jakarta Selatan</p>
-						        </div>
-						      </div>
-
-						      <div class="item">
-						        <img src="{{url()}}/assets/kamar2.jpg" alt="Chania" width="100%">
-						        <div class="carousel-caption" style="background-color: rgba(17,16,16,0.5);left:0%;right:0%;bottom:0%;padding-top: 0%;padding-bottom: 3%;">
-						          <h3 style="margin:1%;">Kost Dekat Itc Fatmawati Madrasah/24 Cilandak Jakarta Selatan</h3>
-						          <p>Nyaman, Aman, Exclusive | Rp. 200.000 * Harian Rp. 1.800.000 s/d 2.500.000 * Bulanan</p>
-						          <p>Jl Kemang Raya No 11 Jakarta Selatan</p>
-						        </div>
-						      </div>
-						    
-						      <div class="item">
-						        <img src="{{url()}}/assets/kamar3.jpg" alt="Flower" width="100%">
-						        <div class="carousel-caption" style="background-color: rgba(17,16,16,0.5);left:0%;right:0%;bottom:0%;padding-top: 0%;padding-bottom: 3%;">
-						          <h3 style="margin:1%;">Koi Residence Exclusive Kost Jl Tanah Kusir 2/18 Gandaria Utara Jakarta</h3>
-						          <p>Nyaman, Aman, Exclusive | Rp. 2.200.000 s/d 3.800.000 * Bulanan</p>
-						          <p>Jl. Tanah Kusir 2 No 18, Jakarta Selatan Dekat Gandaria City Pondok Indah Mal</p>
-						        </div>
-						      </div>
-
-						      <div class="item">
-						        <img src="{{url()}}/assets/kamar2.jpg" alt="Flower" width="100%">
-						        <div class="carousel-caption" style="background-color: rgba(17,16,16,0.5);left:0%;right:0%;bottom:0%;padding-top: 0%;padding-bottom: 3%;">
-						          <h3 style="margin:1%;">Flowers</h3>
-						          <p>Nyaman, Aman, Exclusive | Rp. 4.000.000 s/d 9.500.000 *Bulanan</p>
-						          <p>Jl Kemang Raya No 11 Jakarta Selatan</p>
-						        </div>
-						      </div>
-						    </div>
-						  </div>
-					    </md-card-content>
-					</md-card>
+	    		<div class="col-sm-12" style="text-align:center;">
+	    			<md-button id="add_google_map" class="md-raised" onclick="loadScript()">
+	    				<md-icon md-svg-icon="{{url()}}/assets/ic_add_black.svg"></md-icon>
+	    				Add Map
+	    			</md-button>
+	    			<md-button id="clear_google_map" class="md-raised">
+			          <md-icon md-svg-icon="{{url()}}/assets/ic_clear_black.svg"></md-icon>
+			          	Clear Map
+			        </md-button>
+			        <md-button id="add_street_view" class="md-raised">
+			          <md-icon md-svg-icon="{{url()}}/assets/ic_add_black.svg"></md-icon>
+			          	Add Street View
+			        </md-button>
+			        <md-button id="clear_street_view" class="md-raised">
+			          <md-icon md-svg-icon="{{url()}}/assets/ic_clear_black.svg"></md-icon>
+			          	Clear Street View
+			        </md-button>
+			    </div>
+			    <!--
+			    <div style="text-align:center;">
+				    <input id="pac-input" class="controls" type="text" placeholder="Search Box">
+				    <md-card>
+				    	
+				    	<div id="MySplitter">
+				    		<div id="TopPane">
+					    		<div id="googleMap" style="width:100%;padding-bottom: 56.25%;max-padding-bottom:500px;" ></div>
+					    	</div>
+					    	<div id="BottomPane">
+					    		<div id="pano" style="width:100%;padding-bottom: 56.25%;max-padding-bottom:500px;"></div>
+					    	</div>
+				    	</div>
+				    	
+				    </md-card>
+			    </div>
+			    -->
+	    		<div class="col-sm-12" ng-controller="CardCtrl">
+	    			<div ng-repeat="x in listKost" class="col-sm-4" style="margin:0px;padding:0px;">
+						<md-card>
+					      <img ng-src="{{url()}}/assets/<%x.imagePath%>" class="md-card-image" alt="Washed Out">
+					      <md-card-content>
+					        <h2 class="md-title"><%x.title%></h2>
+					        <p><%x.description%></p>
+					        <p><%x.address%></p>
+					        <p><%x.price%></p>
+					      </md-card-content>
+					      <md-card-actions layout="row" layout-align="end center">
+					        <md-button>Action 1</md-button>
+					        <md-button>Action 2</md-button>
+					      </md-card-actions>
+					    </md-card>
+					</div>
 				</div>
 			</div>
 			
@@ -238,7 +292,7 @@
 		          		<md-menu-item>
 				          <md-button>
 				            <md-icon md-svg-icon="{{url()}}/assets/ic_clear_black.svg" md-menu-align-target></md-icon>
-				            <p>Search</p>
+				            	Search
 				          </md-button>
 				        </md-menu-item>
 			        </a>
@@ -246,7 +300,7 @@
 				        <md-menu-item>
 				          <md-button>
 				            <md-icon md-svg-icon="{{url()}}/assets/ic_clear_black.svg" md-menu-align-target></md-icon>
-				            <p>Search with map</p>
+				            	Search with map
 				          </md-button>
 				        </md-menu-item>
 			        </a>

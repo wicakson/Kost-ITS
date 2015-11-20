@@ -22,3 +22,15 @@ Route::get('/', function () {
 Route::get('tes', function () {
     return view('waca');
 });
+
+Route::get('contact-us', function () {
+    return view('contact-us');
+});
+
+Route::get('search', function () {
+    return view('search');
+});
+
+Route::get('search-with-map', function () {
+    return view('search-with-map');
+});

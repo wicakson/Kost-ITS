@@ -1,8 +1,6 @@
 <html lang="en">
   <head>
   	<title>Kost ITS</title>
-  	<meta charset="utf-8">
-  	<meta name="viewport" content="width=device-width, initial-scale=1">
   	<link rel="icon" href="{{url()}}/assets/logo.png" type="image/gif" sizes="16x16">
     <script src="{{url()}}/assets/jquery-2.1.4.min.js"></script>
     <link rel="stylesheet" href="{{url()}}/assets/bootstrap.min.css">
@@ -68,116 +66,91 @@
     		<div class="row" style="margin:0px;">
 	    		<br>
 	    		<div class="col-sm-6" ng-controller="CardCtrl">
-	    			<h1 style="text-align:center;">Our Staff Pick</h1>
+	    			<h1 style="text-align:center;">Contact Us</h1>
+	    			<h2 class="md-title" style="text-align:center;">For blablabla</h2>
 					<md-card>
-					    <md-card-content style="padding:0px;">
-						  <div id="myCarousel" class="carousel slide" data-ride="carousel">
-						    <!-- Indicators -->
-						    <ol class="carousel-indicators" style="bottom:0%;height:3%;">
-						      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-						      <li data-target="#myCarousel" data-slide-to="1"></li>
-						      <li data-target="#myCarousel" data-slide-to="2"></li>
-						      <li data-target="#myCarousel" data-slide-to="3"></li>
-						    </ol>
-
-						    <!-- Wrapper for slides -->
-						    <div class="carousel-inner" role="listbox">
-
-						      <div class="item active">
-						        <img src="{{url()}}/assets/kamar1.jpg" alt="Chania" width="100%">
-						        <div class="carousel-caption" style="background-color: rgba(17,16,16,0.5);left:0%;right:0%;bottom:0%;padding-top: 0%;padding-bottom: 3%;">
-						          <h3 style="margin:1%;">Kost Exclusive Kemang Eleven Di Kemang Cilandak Bangka Jakarta</h3>
-						          <p>Nyaman, Aman, Exclusive | Rp. 4.000.000 s/d 9.500.000 *Bulanan</p>
-						          <p>Jl Kemang Raya No 11 Jakarta Selatan</p>
-						        </div>
-						      </div>
-
-						      <div class="item">
-						        <img src="{{url()}}/assets/kamar2.jpg" alt="Chania" width="100%">
-						        <div class="carousel-caption" style="background-color: rgba(17,16,16,0.5);left:0%;right:0%;bottom:0%;padding-top: 0%;padding-bottom: 3%;">
-						          <h3 style="margin:1%;">Kost Dekat Itc Fatmawati Madrasah/24 Cilandak Jakarta Selatan</h3>
-						          <p>Nyaman, Aman, Exclusive | Rp. 200.000 * Harian Rp. 1.800.000 s/d 2.500.000 * Bulanan</p>
-						          <p>Jl Kemang Raya No 11 Jakarta Selatan</p>
-						        </div>
-						      </div>
-						    
-						      <div class="item">
-						        <img src="{{url()}}/assets/kamar3.jpg" alt="Flower" width="100%">
-						        <div class="carousel-caption" style="background-color: rgba(17,16,16,0.5);left:0%;right:0%;bottom:0%;padding-top: 0%;padding-bottom: 3%;">
-						          <h3 style="margin:1%;">Koi Residence Exclusive Kost Jl Tanah Kusir 2/18 Gandaria Utara Jakarta</h3>
-						          <p>Nyaman, Aman, Exclusive | Rp. 2.200.000 s/d 3.800.000 * Bulanan</p>
-						          <p>Jl. Tanah Kusir 2 No 18, Jakarta Selatan Dekat Gandaria City Pondok Indah Mal</p>
-						        </div>
-						      </div>
-
-						      <div class="item">
-						        <img src="{{url()}}/assets/kamar2.jpg" alt="Flower" width="100%">
-						        <div class="carousel-caption" style="background-color: rgba(17,16,16,0.5);left:0%;right:0%;bottom:0%;padding-top: 0%;padding-bottom: 3%;">
-						          <h3 style="margin:1%;">Flowers</h3>
-						          <p>Nyaman, Aman, Exclusive | Rp. 4.000.000 s/d 9.500.000 *Bulanan</p>
-						          <p>Jl Kemang Raya No 11 Jakarta Selatan</p>
-						        </div>
-						      </div>
-						    </div>
-						  </div>
-					    </md-card-content>
-					</md-card>
+					    <md-card-content>
+					        <p>	Wisma 77 tower 2, 9th floor<br>Jl. Letjen S. Parman Kav. 77<br>
+								Slipi, Jakarta Barat 11410 Indonesia<br>PT. Mediapura Digital Indonesia<br>
+								Telp +6221 296 75920 Ext 134</p>
+					      </md-card-content>
+					    </md-card>
 				</div>
 				<div class="col-sm-6" ng-controller="CardCtrl">
-					<h1 style="text-align:center;">Favorites</h1>
+					<h1 style="text-align:center;">Follow Us</h1>
+					<h2 class="md-title" style="text-align:center;">For blablabla</h2>
 					<md-card>
-					    <md-card-content style="padding:0px;">
-						  <div id="myCarousel" class="carousel slide" data-ride="carousel">
-						    <!-- Indicators -->
-						    <ol class="carousel-indicators" style="bottom:0%;height:3%;">
-						      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-						      <li data-target="#myCarousel" data-slide-to="1"></li>
-						      <li data-target="#myCarousel" data-slide-to="2"></li>
-						      <li data-target="#myCarousel" data-slide-to="3"></li>
-						    </ol>
-
-						    <!-- Wrapper for slides -->
-						    <div class="carousel-inner" role="listbox">
-
-						      <div class="item active">
-						        <img src="{{url()}}/assets/kamar1.jpg" alt="Chania" width="100%">
-						        <div class="carousel-caption" style="background-color: rgba(17,16,16,0.5);left:0%;right:0%;bottom:0%;padding-top: 0%;padding-bottom: 3%;">
-						          <h3 style="margin:1%;">Kost Exclusive Kemang Eleven Di Kemang Cilandak Bangka Jakarta</h3>
-						          <p>Nyaman, Aman, Exclusive | Rp. 4.000.000 s/d 9.500.000 *Bulanan</p>
-						          <p>Jl Kemang Raya No 11 Jakarta Selatan</p>
-						        </div>
-						      </div>
-
-						      <div class="item">
-						        <img src="{{url()}}/assets/kamar2.jpg" alt="Chania" width="100%">
-						        <div class="carousel-caption" style="background-color: rgba(17,16,16,0.5);left:0%;right:0%;bottom:0%;padding-top: 0%;padding-bottom: 3%;">
-						          <h3 style="margin:1%;">Kost Dekat Itc Fatmawati Madrasah/24 Cilandak Jakarta Selatan</h3>
-						          <p>Nyaman, Aman, Exclusive | Rp. 200.000 * Harian Rp. 1.800.000 s/d 2.500.000 * Bulanan</p>
-						          <p>Jl Kemang Raya No 11 Jakarta Selatan</p>
-						        </div>
-						      </div>
-						    
-						      <div class="item">
-						        <img src="{{url()}}/assets/kamar3.jpg" alt="Flower" width="100%">
-						        <div class="carousel-caption" style="background-color: rgba(17,16,16,0.5);left:0%;right:0%;bottom:0%;padding-top: 0%;padding-bottom: 3%;">
-						          <h3 style="margin:1%;">Koi Residence Exclusive Kost Jl Tanah Kusir 2/18 Gandaria Utara Jakarta</h3>
-						          <p>Nyaman, Aman, Exclusive | Rp. 2.200.000 s/d 3.800.000 * Bulanan</p>
-						          <p>Jl. Tanah Kusir 2 No 18, Jakarta Selatan Dekat Gandaria City Pondok Indah Mal</p>
-						        </div>
-						      </div>
-
-						      <div class="item">
-						        <img src="{{url()}}/assets/kamar2.jpg" alt="Flower" width="100%">
-						        <div class="carousel-caption" style="background-color: rgba(17,16,16,0.5);left:0%;right:0%;bottom:0%;padding-top: 0%;padding-bottom: 3%;">
-						          <h3 style="margin:1%;">Flowers</h3>
-						          <p>Nyaman, Aman, Exclusive | Rp. 4.000.000 s/d 9.500.000 *Bulanan</p>
-						          <p>Jl Kemang Raya No 11 Jakarta Selatan</p>
-						        </div>
-						      </div>
-						    </div>
-						  </div>
-					    </md-card-content>
-					</md-card>
+					    <md-card-content>
+					    	<div class="col-sm-3">
+					    		Facebook
+					    	</div>
+					    	<div class="col-sm-3">
+					    		Twitter
+					    	</div>
+					    	<div class="col-sm-3">
+					    		Google+
+					    	</div>
+					    	<div class="col-sm-3">
+					    		Instagram
+					    	</div>
+					      </md-card-content>
+					    </md-card>
+				</div>
+				<br>
+				<div class="col-sm-12" ng-controller="CardCtrl">
+					<h1 style="text-align:center;">Our Team</h1>
+					<div class="col-sm-3">
+						<md-card>
+						    <md-card-content style="padding:0px;">
+						    	<img src="{{url()}}/assets/kamar1.jpg" class="img-responsive" alt="Responsive image">
+						        <div style="padding-left:15px;padding-right:15px;">
+							        <h2 class="md-title">Kevin Sanjoyo</h2>
+							        <p>	Wisma 77 tower 2, 9th floor<br>Jl. Letjen S. Parman Kav. 77<br>
+										Slipi, Jakarta Barat 11410 Indonesia<br>PT. Mediapura Digital Indonesia<br>
+										Telp +6221 296 75920 Ext 134</p>
+								</div>
+						    </md-card-content>
+						</md-card>
+					</div>
+					<div class="col-sm-3">
+						<md-card>
+						    <md-card-content style="padding:0px;">
+						    	<img src="{{url()}}/assets/kamar1.jpg" class="img-responsive" alt="Responsive image">
+						        <div style="padding-left:15px;padding-right:15px;">
+							        <h2 class="md-title">Kevin Sanjoyo</h2>
+							        <p>	Wisma 77 tower 2, 9th floor<br>Jl. Letjen S. Parman Kav. 77<br>
+										Slipi, Jakarta Barat 11410 Indonesia<br>PT. Mediapura Digital Indonesia<br>
+										Telp +6221 296 75920 Ext 134</p>
+								</div>
+						    </md-card-content>
+						</md-card>
+					</div>
+					<div class="col-sm-3">
+						<md-card>
+						    <md-card-content style="padding:0px;">
+						    	<img src="{{url()}}/assets/kamar1.jpg" class="img-responsive" alt="Responsive image">
+						    	<div style="padding-left:15px;padding-right:15px;">
+							        <h2 class="md-title">Kevin Sanjoyo</h2>
+							        <p>	Wisma 77 tower 2, 9th floor<br>Jl. Letjen S. Parman Kav. 77<br>
+										Slipi, Jakarta Barat 11410 Indonesia<br>PT. Mediapura Digital Indonesia<br>
+										Telp +6221 296 75920 Ext 134</p>
+								</div>
+						    </md-card-content>
+						</md-card>
+					</div>
+					<div class="col-sm-3">
+						<md-card>
+						    <md-card-content style="padding:0px;">
+						    	<img src="{{url()}}/assets/kamar1.jpg" class="img-responsive" alt="Responsive image">
+						    	<div style="padding-left:15px;padding-right:15px;">
+							        <h2 class="md-title">Kevin Sanjoyo</h2>
+							        <p>	Wisma 77 tower 2, 9th floor<br>Jl. Letjen S. Parman Kav. 77<br>
+										Slipi, Jakarta Barat 11410 Indonesia<br>PT. Mediapura Digital Indonesia<br>
+										Telp +6221 296 75920 Ext 134</p>
+								</div>
+						    </md-card-content>
+						</md-card>
+					</div>
 				</div>
 			</div>
 			
@@ -192,7 +165,7 @@
 		    		<md-menu-item>
 			          <md-button>
 			            <md-icon md-svg-icon="{{url()}}/assets/ic_clear_black.svg" md-menu-align-target></md-icon>
-			            	Akun
+			            	Log in
 			          </md-button>
 			        </md-menu-item>
 			        <a href="{{url()}}/" style="color: black;text-decoration: none;">
@@ -228,14 +201,13 @@
         </md-sidenav>
         <!--ng-controller="SelectOptGroupController"-->
         <md-sidenav class="md-sidenav-right md-whiteframe-z2" md-component-id="right">
-        	<form ng-submit="$event.preventDefault()" style="margin:0px;">
-        	  <md-toolbar class="md-theme-left">
+        	<md-toolbar class="md-theme-left">
 	            <h1 class="md-toolbar-tools">Pencarian Lanjut</h1>
-	          </md-toolbar>
-	          <md-content ng-controller="LeftCtrl" style="padding:0px;">
+	        </md-toolbar>
+	        <md-content ng-controller="LeftCtrl" style="padding:0px;">
 	          	<md-menu-content style="padding:0px;">
-	          		<a href="{{url()}}/search" style="color:black;text-decoration:none;">
-		          		<md-menu-item>
+	          		<a href="{{url()}}/search" style="color: black;text-decoration: none;">
+				        <md-menu-item>
 				          <md-button>
 				            <md-icon md-svg-icon="{{url()}}/assets/ic_clear_black.svg" md-menu-align-target></md-icon>
 				            <p>Search</p>
@@ -324,8 +296,7 @@
 				        </md-checkbox>
 				    </div>
 				</div>
-	          </md-content>
-		    </form>
+	        </md-content>
 	    </md-sidenav>
       </section>
     </div>		
