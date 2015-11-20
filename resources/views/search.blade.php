@@ -181,41 +181,6 @@
     		</md-toolbar>
     		
     		<div class="row" style="margin:0px;">
-	    		<div class="col-sm-12" style="text-align:center;">
-	    			<md-button id="add_google_map" class="md-raised" onclick="loadScript()">
-	    				<md-icon md-svg-icon="{{url()}}/assets/ic_add_black.svg"></md-icon>
-	    				Add Map
-	    			</md-button>
-	    			<md-button id="clear_google_map" class="md-raised">
-			          <md-icon md-svg-icon="{{url()}}/assets/ic_clear_black.svg"></md-icon>
-			          	Clear Map
-			        </md-button>
-			        <md-button id="add_street_view" class="md-raised">
-			          <md-icon md-svg-icon="{{url()}}/assets/ic_add_black.svg"></md-icon>
-			          	Add Street View
-			        </md-button>
-			        <md-button id="clear_street_view" class="md-raised">
-			          <md-icon md-svg-icon="{{url()}}/assets/ic_clear_black.svg"></md-icon>
-			          	Clear Street View
-			        </md-button>
-			    </div>
-			    <!--
-			    <div style="text-align:center;">
-				    <input id="pac-input" class="controls" type="text" placeholder="Search Box">
-				    <md-card>
-				    	
-				    	<div id="MySplitter">
-				    		<div id="TopPane">
-					    		<div id="googleMap" style="width:100%;padding-bottom: 56.25%;max-padding-bottom:500px;" ></div>
-					    	</div>
-					    	<div id="BottomPane">
-					    		<div id="pano" style="width:100%;padding-bottom: 56.25%;max-padding-bottom:500px;"></div>
-					    	</div>
-				    	</div>
-				    	
-				    </md-card>
-			    </div>
-			    -->
 	    		<div class="col-sm-12" ng-controller="CardCtrl">
 	    			<div ng-repeat="x in listKost" class="col-sm-4" style="margin:0px;padding:0px;">
 						<md-card>

@@ -161,3 +161,10 @@ body {
   font-family: Roboto-Regular;
   font-size: 13px;
 }
+
+/*text-limit*/
+.limit-text {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

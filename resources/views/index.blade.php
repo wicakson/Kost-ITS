@@ -86,36 +86,36 @@
 						      <div class="item active">
 						        <img src="{{url()}}/assets/kamar1.jpg" alt="Chania" width="100%">
 						        <div class="carousel-caption" style="background-color: rgba(17,16,16,0.5);left:0%;right:0%;bottom:0%;padding-top: 0%;padding-bottom: 3%;">
-						          <h3 style="margin:1%;">Kost Exclusive Kemang Eleven Di Kemang Cilandak Bangka Jakarta</h3>
-						          <p>Nyaman, Aman, Exclusive | Rp. 4.000.000 s/d 9.500.000 *Bulanan</p>
-						          <p>Jl Kemang Raya No 11 Jakarta Selatan</p>
+						          <h3 class="limit-text" style="margin:1%;">Kost Exclusive Kemang Eleven Di Kemang Cilandak Bangka Jakarta</h3>
+						          <p class="limit-text">Nyaman, Aman, Exclusive | Rp. 4.000.000 s/d 9.500.000 *Bulanan</p>
+						          <p class="limit-text">Jl Kemang Raya No 11 Jakarta Selatan</p>
 						        </div>
 						      </div>
 
 						      <div class="item">
 						        <img src="{{url()}}/assets/kamar2.jpg" alt="Chania" width="100%">
 						        <div class="carousel-caption" style="background-color: rgba(17,16,16,0.5);left:0%;right:0%;bottom:0%;padding-top: 0%;padding-bottom: 3%;">
-						          <h3 style="margin:1%;">Kost Dekat Itc Fatmawati Madrasah/24 Cilandak Jakarta Selatan</h3>
-						          <p>Nyaman, Aman, Exclusive | Rp. 200.000 * Harian Rp. 1.800.000 s/d 2.500.000 * Bulanan</p>
-						          <p>Jl Kemang Raya No 11 Jakarta Selatan</p>
+						          <h3 class="limit-text" style="margin:1%;">Kost Dekat Itc Fatmawati Madrasah/24 Cilandak Jakarta Selatan</h3>
+						          <p class="limit-text">Nyaman, Aman, Exclusive | Rp. 200.000 * Harian Rp. 1.800.000 s/d 2.500.000 * Bulanan</p>
+						          <p class="limit-text">Jl Kemang Raya No 11 Jakarta Selatan</p>
 						        </div>
 						      </div>
 						    
 						      <div class="item">
 						        <img src="{{url()}}/assets/kamar3.jpg" alt="Flower" width="100%">
 						        <div class="carousel-caption" style="background-color: rgba(17,16,16,0.5);left:0%;right:0%;bottom:0%;padding-top: 0%;padding-bottom: 3%;">
-						          <h3 style="margin:1%;">Koi Residence Exclusive Kost Jl Tanah Kusir 2/18 Gandaria Utara Jakarta</h3>
-						          <p>Nyaman, Aman, Exclusive | Rp. 2.200.000 s/d 3.800.000 * Bulanan</p>
-						          <p>Jl. Tanah Kusir 2 No 18, Jakarta Selatan Dekat Gandaria City Pondok Indah Mal</p>
+						          <h3 class="limit-text" style="margin:1%;">Koi Residence Exclusive Kost Jl Tanah Kusir 2/18 Gandaria Utara Jakarta</h3>
+						          <p class="limit-text">Nyaman, Aman, Exclusive | Rp. 2.200.000 s/d 3.800.000 * Bulanan</p>
+						          <p class="limit-text">Jl. Tanah Kusir 2 No 18, Jakarta Selatan Dekat Gandaria City Pondok Indah Mal</p>
 						        </div>
 						      </div>
 
 						      <div class="item">
 						        <img src="{{url()}}/assets/kamar2.jpg" alt="Flower" width="100%">
 						        <div class="carousel-caption" style="background-color: rgba(17,16,16,0.5);left:0%;right:0%;bottom:0%;padding-top: 0%;padding-bottom: 3%;">
-						          <h3 style="margin:1%;">Flowers</h3>
-						          <p>Nyaman, Aman, Exclusive | Rp. 4.000.000 s/d 9.500.000 *Bulanan</p>
-						          <p>Jl Kemang Raya No 11 Jakarta Selatan</p>
+						          <h3 class="limit-text" style="margin:1%;">Flowers</h3>
+						          <p class="limit-text">Nyaman, Aman, Exclusive | Rp. 4.000.000 s/d 9.500.000 *Bulanan</p>
+						          <p class="limit-text">Jl Kemang Raya No 11 Jakarta Selatan</p>
 						        </div>
 						      </div>
 						    </div>
@@ -142,36 +142,36 @@
 						      <div class="item active">
 						        <img src="{{url()}}/assets/kamar1.jpg" alt="Chania" width="100%">
 						        <div class="carousel-caption" style="background-color: rgba(17,16,16,0.5);left:0%;right:0%;bottom:0%;padding-top: 0%;padding-bottom: 3%;">
-						          <h3 style="margin:1%;">Kost Exclusive Kemang Eleven Di Kemang Cilandak Bangka Jakarta</h3>
-						          <p>Nyaman, Aman, Exclusive | Rp. 4.000.000 s/d 9.500.000 *Bulanan</p>
-						          <p>Jl Kemang Raya No 11 Jakarta Selatan</p>
+						          <h3 class="limit-text" style="margin:1%;">Kost Exclusive Kemang Eleven Di Kemang Cilandak Bangka Jakarta</h3>
+						          <p class="limit-text">Nyaman, Aman, Exclusive | Rp. 4.000.000 s/d 9.500.000 *Bulanan</p>
+						          <p class="limit-text">Jl Kemang Raya No 11 Jakarta Selatan</p>
 						        </div>
 						      </div>
 
 						      <div class="item">
 						        <img src="{{url()}}/assets/kamar2.jpg" alt="Chania" width="100%">
 						        <div class="carousel-caption" style="background-color: rgba(17,16,16,0.5);left:0%;right:0%;bottom:0%;padding-top: 0%;padding-bottom: 3%;">
-						          <h3 style="margin:1%;">Kost Dekat Itc Fatmawati Madrasah/24 Cilandak Jakarta Selatan</h3>
-						          <p>Nyaman, Aman, Exclusive | Rp. 200.000 * Harian Rp. 1.800.000 s/d 2.500.000 * Bulanan</p>
-						          <p>Jl Kemang Raya No 11 Jakarta Selatan</p>
+						          <h3 class="limit-text" style="margin:1%;">Kost Dekat Itc Fatmawati Madrasah/24 Cilandak Jakarta Selatan</h3>
+						          <p class="limit-text">Nyaman, Aman, Exclusive | Rp. 200.000 * Harian Rp. 1.800.000 s/d 2.500.000 * Bulanan</p>
+						          <p class="limit-text">Jl Kemang Raya No 11 Jakarta Selatan</p>
 						        </div>
 						      </div>
 						    
 						      <div class="item">
 						        <img src="{{url()}}/assets/kamar3.jpg" alt="Flower" width="100%">
 						        <div class="carousel-caption" style="background-color: rgba(17,16,16,0.5);left:0%;right:0%;bottom:0%;padding-top: 0%;padding-bottom: 3%;">
-						          <h3 style="margin:1%;">Koi Residence Exclusive Kost Jl Tanah Kusir 2/18 Gandaria Utara Jakarta</h3>
-						          <p>Nyaman, Aman, Exclusive | Rp. 2.200.000 s/d 3.800.000 * Bulanan</p>
-						          <p>Jl. Tanah Kusir 2 No 18, Jakarta Selatan Dekat Gandaria City Pondok Indah Mal</p>
+						          <h3 class="limit-text" style="margin:1%;">Koi Residence Exclusive Kost Jl Tanah Kusir 2/18 Gandaria Utara Jakarta</h3>
+						          <p class="limit-text">Nyaman, Aman, Exclusive | Rp. 2.200.000 s/d 3.800.000 * Bulanan</p>
+						          <p class="limit-text">Jl. Tanah Kusir 2 No 18, Jakarta Selatan Dekat Gandaria City Pondok Indah Mal</p>
 						        </div>
 						      </div>
 
 						      <div class="item">
 						        <img src="{{url()}}/assets/kamar2.jpg" alt="Flower" width="100%">
 						        <div class="carousel-caption" style="background-color: rgba(17,16,16,0.5);left:0%;right:0%;bottom:0%;padding-top: 0%;padding-bottom: 3%;">
-						          <h3 style="margin:1%;">Flowers</h3>
-						          <p>Nyaman, Aman, Exclusive | Rp. 4.000.000 s/d 9.500.000 *Bulanan</p>
-						          <p>Jl Kemang Raya No 11 Jakarta Selatan</p>
+						          <h3 class="limit-text" style="margin:1%;">Flowers</h3>
+						          <p class="limit-text">Nyaman, Aman, Exclusive | Rp. 4.000.000 s/d 9.500.000 *Bulanan</p>
+						          <p class="limit-text">Jl Kemang Raya No 11 Jakarta Selatan</p>
 						        </div>
 						      </div>
 						    </div>
