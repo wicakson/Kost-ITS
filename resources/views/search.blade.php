@@ -185,7 +185,7 @@
 	    			<div ng-repeat="x in listKost" class="col-sm-4" style="margin:0px;padding:0px;">
 						<md-card>
 					      <img ng-src="{{url()}}/assets/<%x.imagePath%>" class="md-card-image" alt="Washed Out">
-					      <md-card-content>
+					      <md-card-content class="limit-text">
 					        <h2 class="md-title"><%x.title%></h2>
 					        <p><%x.description%></p>
 					        <p><%x.address%></p>

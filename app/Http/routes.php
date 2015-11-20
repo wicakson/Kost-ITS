@@ -34,3 +34,7 @@ Route::get('search', function () {
 Route::get('search-with-map', function () {
     return view('search-with-map');
 });
+
+Route::get('detail', function () {
+    return view('detail');
+});
