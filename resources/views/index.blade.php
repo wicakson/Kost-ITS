@@ -127,13 +127,13 @@
 					<h1 style="text-align:center;">Favorites</h1>
 					<md-card>
 					    <md-card-content style="padding:0px;">
-						  <div id="myCarousel" class="carousel slide" data-ride="carousel">
+						  <div id="myCarousel2" class="carousel slide" data-ride="carousel">
 						    <!-- Indicators -->
 						    <ol class="carousel-indicators" style="bottom:0%;height:3%;">
-						      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-						      <li data-target="#myCarousel" data-slide-to="1"></li>
-						      <li data-target="#myCarousel" data-slide-to="2"></li>
-						      <li data-target="#myCarousel" data-slide-to="3"></li>
+						      <li data-target="#myCarousel2" data-slide-to="0" class="active"></li>
+						      <li data-target="#myCarousel2" data-slide-to="1"></li>
+						      <li data-target="#myCarousel2" data-slide-to="2"></li>
+						      <li data-target="#myCarousel2" data-slide-to="3"></li>
 						    </ol>
 
 						    <!-- Wrapper for slides -->
