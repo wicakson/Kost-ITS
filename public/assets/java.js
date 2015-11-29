@@ -1,34 +1,6 @@
 //jquery
 $(document).ready(function(){
-    $("#googleMap").hide();
-    $("#pano").hide();
-    $("#pac-input").hide();
-    $("#clear_google_map").hide();
-    $("#add_street_view").hide();
-    $("#clear_street_view").hide();
-    $("#add_google_map").click(function(){
-        $("#googleMap").show();
-        $("#pac-input").show();
-        $("#clear_google_map").show();
-        $("#add_street_view").show();
-    });
-    $("#clear_google_map").click(function(){
-        $("#googleMap").hide();
-        $("#pac-input").hide();
-        $("#clear_google_map").hide();
-        $("#add_street_view").hide();
-        $("#clear_street_view").hide();
-    });
-    $("#add_street_view").click(function(){
-        $("#pano").show();
-        $("#clear_street_view").show();
-    });
-    $("#clear_street_view").click(function(){
-        $("#pano").hide();
-        $("#clear_street_view").hide();
-    });
 
-    $('#MySplitter').split({orientation: 'horizontal'});
 });
 
 'use strict';
@@ -38,13 +10,21 @@ var app = angular.module('sidenavDemo1', ['ngMaterial'], function($interpolatePr
         $interpolateProvider.endSymbol('%>');
     });
 app.controller('AppCtrl', function ($scope, $timeout, $mdSidenav, $log) {
-    $scope.toggleLeft = buildDelayedToggler('left');
-    $scope.toggleRight = buildDelayedToggler('right');
-    $scope.isOpenLeft = function(){
-      return $mdSidenav('left').isOpen();
+    $scope.toggleLeft = buildToggler('left');
+    $scope.toggleRight = buildToggler('right');
+    $scope.keepOpen = false;
+    function toggleRight(){
+      $mdSidenav('right').toggle().then(function () {
+        $("body").css({ position: 'static' });
+        $scope.keepOpen = !$scope.keepOpen;
+        if ($scope.keepOpen)
+          angular.element('md-backdrop.md-sidenav-backdrop-custom').removeClass('disabled');
+        else
+          angular.element('md-backdrop.md-sidenav-backdrop-custom').addClass('disabled');
+        });   
     };
-    $scope.isOpenRight = function(){
-      return $mdSidenav('right').isOpen();
+    $scope.checkClosingForm = function(){
+      toggleRight();
     };
     /**
      * Supplies a function that will continue to operate until the
@@ -68,8 +48,8 @@ app.controller('AppCtrl', function ($scope, $timeout, $mdSidenav, $log) {
      */
     function buildDelayedToggler(navID) {
       return debounce(function() {
-        $mdSidenav(navID)
-          .toggle()
+        $("body").css({ position: 'fixed' });
+        $mdSidenav(navID).toggle()
           .then(function () {
             $log.debug("toggle " + navID + " is done");
           });
@@ -77,16 +57,48 @@ app.controller('AppCtrl', function ($scope, $timeout, $mdSidenav, $log) {
     }
     function buildToggler(navID) {
       return function() {
-        $mdSidenav(navID)
-          .toggle()
+        if(navID=='right') $("body").css({ position: 'fixed' });
+        $mdSidenav(navID).toggle()
           .then(function () {
+            if(navID=='right') {
+              $scope.keepOpen = !$scope.keepOpen;
+              if ($scope.keepOpen)
+                  angular.element('md-backdrop.md-sidenav-backdrop-custom').removeClass('disabled');
+              else
+                  angular.element('md-backdrop.md-sidenav-backdrop-custom').addClass('disabled');
+            }
             $log.debug("toggle " + navID + " is done");
           });
       }
     }
+    $scope.getMyLastName = function() {
+       facebookService.getMyLastName() 
+         .then(function(response) {
+           $scope.last_name = response.last_name;
+         }
+       );
+    };
+  })
+  .factory('facebookService', function($q) {
+      return {
+          getMyLastName: function() {
+              var deferred = $q.defer();
+              FB.api('/me', {
+                  fields: 'last_name'
+              }, function(response) {
+                  if (!response || response.error) {
+                      deferred.reject('Error occured');
+                  } else {
+                      deferred.resolve(response);
+                  }
+              });
+              return deferred.promise;
+          }
+      }
   })
   .controller('LeftCtrl', function ($scope, $timeout, $mdSidenav, $log) {
     $scope.close = function () {
+      $("body").css({ position: 'static' });
       $mdSidenav('left').close()
         .then(function () {
           $log.debug("close LEFT is done");
@@ -95,6 +107,7 @@ app.controller('AppCtrl', function ($scope, $timeout, $mdSidenav, $log) {
   })
   .controller('RightCtrl', function ($scope, $timeout, $mdSidenav, $log) {
     $scope.close = function () {
+      $("body").css({ position: 'static' });
       $mdSidenav('right').close()
         .then(function () {
           $log.debug("close RIGHT is done");

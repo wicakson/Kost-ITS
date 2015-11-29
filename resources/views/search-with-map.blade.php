@@ -26,9 +26,6 @@
     <script src="{{url()}}/assets/angular-aria.min.js"></script>
     <script src="{{url()}}/assets/angular-animate.min.js"></script>
 
-    <link rel="stylesheet" href="{{url()}}/assets/jquery.splitter.css">
-    <script src="{{url()}}/assets/jquery.splitter.js"></script>
-
     <link href="{{url()}}/assets/nouislider.min.css" rel="stylesheet">
     <script src="{{url()}}/assets/nouislider.min.js"></script>
 
@@ -135,25 +132,20 @@
 			{
 				script = document.createElement("script");
 			  	script.type = "text/javascript";
-			  	script.src = "http://maps.googleapis.com/maps/api/js?key=&signed_in=true&sensor=false&libraries=places&callback=initialize";
+			  	script.src = "http://maps.googleapis.com/maps/api/js?key=&signed_in=true&libraries=places&callback=initialize";
 			  	document.body.appendChild(script);
 			  	cek=1;
 			}
 			else
 				return;
 		}
-
-		function codeAddress()
-		{
-
-		}
 	</script>
   </head>
   <body layout="column">
-    <div ng-app="sidenavDemo1" ng-controller="AppCtrl" layout="column" style="height:100%;" ng-cloak >
-      <section layout="row" flex>
+    <div ng-app="sidenavDemo1" ng-controller="AppCtrl">
+      <md-backdrop class="md-sidenav-backdrop md-opaque md-default-theme md-sidenav-backdrop-custom disabled" ng-click="checkClosingForm()"></md-backdrop>
         <md-content>
-        	<md-toolbar>
+        	<md-toolbar style="position:fixed;background-color:rgba(63, 81, 181,0.9);">
 		      <div class="md-toolbar-tools" >
 		      	<div>
 		          <md-button class="md-icon-button" aria-label="Settings" ng-click="toggleLeft()">
@@ -179,7 +171,8 @@
 		        </div>
 		      </div>
     		</md-toolbar>
-    		
+    		<div style="height:64px;background-color:rgb(63, 81, 181);">
+    		</div>
     		<div class="row" style="margin:0px;">
 	    		<div class="col-sm-12" style="text-align:center;">
 	    			<md-button id="add_google_map" class="md-raised" onclick="loadScript()">
@@ -199,23 +192,15 @@
 			          	Clear Street View
 			        </md-button>
 			    </div>
-			    <!--
+			    
 			    <div style="text-align:center;">
 				    <input id="pac-input" class="controls" type="text" placeholder="Search Box">
 				    <md-card>
-				    	
-				    	<div id="MySplitter">
-				    		<div id="TopPane">
-					    		<div id="googleMap" style="width:100%;padding-bottom: 56.25%;max-padding-bottom:500px;" ></div>
-					    	</div>
-					    	<div id="BottomPane">
-					    		<div id="pano" style="width:100%;padding-bottom: 56.25%;max-padding-bottom:500px;"></div>
-					    	</div>
-				    	</div>
-				    	
+					    <div id="googleMap" style="width:100%;"></div>
+					    <div id="pano" style="width:100%;"></div>
 				    </md-card>
 			    </div>
-			    -->
+			    <!--
 	    		<div class="col-sm-12" ng-controller="CardCtrl">
 	    			<div ng-repeat="x in listKost" class="col-sm-4" style="margin:0px;padding:0px;">
 						<md-card>
@@ -233,6 +218,7 @@
 					    </md-card>
 					</div>
 				</div>
+				-->
 			</div>
 			
         </md-content>
@@ -282,7 +268,7 @@
         </md-sidenav>
         <!--ng-controller="SelectOptGroupController"-->
         <md-sidenav class="md-sidenav-right md-whiteframe-z2" md-component-id="right">
-        	<form ng-submit="$event.preventDefault()" style="margin:0px;">
+        	<form action="search" method="get" style="margin:0px;">
         	  <md-toolbar class="md-theme-left">
 	            <h1 class="md-toolbar-tools">Pencarian Lanjut</h1>
 	          </md-toolbar>
@@ -290,7 +276,7 @@
 	          	<md-menu-content style="padding:0px;">
 	          		<a href="{{url()}}/search" style="color:black;text-decoration:none;">
 		          		<md-menu-item>
-				          <md-button>
+				          <md-button type="submit">
 				            <md-icon md-svg-icon="{{url()}}/assets/ic_clear_black.svg" md-menu-align-target></md-icon>
 				            	Search
 				          </md-button>
@@ -298,7 +284,7 @@
 			        </a>
 			        <a href="{{url()}}/search-with-map" style="color:black;text-decoration:none;">
 				        <md-menu-item>
-				          <md-button>
+				          <md-button type="submit">
 				            <md-icon md-svg-icon="{{url()}}/assets/ic_clear_black.svg" md-menu-align-target></md-icon>
 				            	Search with map
 				          </md-button>

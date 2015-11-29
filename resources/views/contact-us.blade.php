@@ -33,10 +33,10 @@
     <script src="{{url()}}/assets/java.js"></script>
   </head>
   <body layout="column">
-    <div ng-app="sidenavDemo1" ng-controller="AppCtrl" layout="column" style="height:100%;" ng-cloak >
-      <section layout="row" flex>
-        <md-content style="width:100%;">
-        	<md-toolbar>
+    <div ng-app="sidenavDemo1" ng-controller="AppCtrl">
+      <md-backdrop class="md-sidenav-backdrop md-opaque md-default-theme md-sidenav-backdrop-custom disabled" ng-click="checkClosingForm()"></md-backdrop>
+        <md-content>
+        	<md-toolbar style="position:fixed;background-color:rgba(63, 81, 181,0.9);">
 		      <div class="md-toolbar-tools" >
 		      	<div>
 		          <md-button class="md-icon-button" aria-label="Settings" ng-click="toggleLeft()">
@@ -62,7 +62,8 @@
 		        </div>
 		      </div>
     		</md-toolbar>
-    		
+    		<div style="height:64px;background-color:rgb(63, 81, 181);">
+    		</div>
     		<div class="row" style="margin:0px;">
 	    		<br>
 	    		<div class="col-sm-6" ng-controller="CardCtrl">
@@ -204,22 +205,23 @@
         </md-sidenav>
         <!--ng-controller="SelectOptGroupController"-->
         <md-sidenav class="md-sidenav-right md-whiteframe-z2" md-component-id="right">
-        	<md-toolbar class="md-theme-left">
+          <form action="search" method="get" style="margin:0px;">
+        	  <md-toolbar class="md-theme-left">
 	            <h1 class="md-toolbar-tools">Pencarian Lanjut</h1>
-	        </md-toolbar>
-	        <md-content ng-controller="LeftCtrl" style="padding:0px;">
+	          </md-toolbar>
+	          <md-content ng-controller="LeftCtrl" style="padding:0px;">
 	          	<md-menu-content style="padding:0px;">
-	          		<a href="{{url()}}/search" style="color: black;text-decoration: none;">
-				        <md-menu-item>
-				          <md-button>
+	          		<a href="{{url()}}/search" style="color:black;text-decoration:none;">
+		          		<md-menu-item>
+				          <md-button type="submit">
 				            <md-icon md-svg-icon="{{url()}}/assets/ic_clear_black.svg" md-menu-align-target></md-icon>
-				            <p>Search</p>
+				            	Search
 				          </md-button>
 				        </md-menu-item>
 			        </a>
 			        <a href="{{url()}}/search-with-map" style="color:black;text-decoration:none;">
 				        <md-menu-item>
-				          <md-button>
+				          <md-button type="submit">
 				            <md-icon md-svg-icon="{{url()}}/assets/ic_clear_black.svg" md-menu-align-target></md-icon>
 				            <p>Search with map</p>
 				          </md-button>
@@ -300,6 +302,7 @@
 				    </div>
 				</div>
 	        </md-content>
+	      </form>
 	    </md-sidenav>
       </section>
     </div>		

@@ -36,3 +36,19 @@ Route::get('search-with-map', function () {
 Route::get('detail', function () {
     return view('detail');
 });
+
+Route::get('upload', function () {
+    return view('upload');
+});
+
+Route::get('upload-2', function () {
+    return view('upload-2');
+});
+
+Route::get('upload-3', function () {
+    return view('upload-3');
+});
+
+Route::any('upload-images', function () {
+    return view('upload-images');
+});
