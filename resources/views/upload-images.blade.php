@@ -1,6 +1,9 @@
-<?php
+<?php 
+
+
 if($_POST['image_form_submit'] == 1)
 {
+
 	$images_arr = array();
 	foreach($_FILES['images']['name'] as $key=>$val){
 		$image_name = $_FILES['images']['name'][$key];
@@ -11,12 +14,20 @@ if($_POST['image_form_submit'] == 1)
 		
 		############ Remove comments if you want to upload and stored images into the "uploads/" folder #############
 		
-		/**/$target_dir = "{{url()}}/assets/uploads/";
-		$target_file = $target_dir.$_FILES['images']['name'][$key];
-		if(move_uploaded_file($_FILES['images']['tmp_name'][$key],$target_file)){
+		$target_dir = "assets/uploads/";
+		$target_file = $target_dir.$image_name;
+		if(move_uploaded_file($tmp_name,$target_file)){
 			$images_arr[] = $target_file;
-		}/**/
+		}
+
 		
+
+		//Input::file('image')->move($target_dir, $tmp_name); // uploading file to given path
+		
+		
+		//echo $target_dir;
+		//echo $target_file;
+
 		//display images without stored
 		//$extra_info = getimagesize($_FILES['images']['tmp_name'][$key]);
     	//$images_arr[] = "data:" . $extra_info["mime"] . ";base64," . base64_encode(file_get_contents($_FILES['images']['tmp_name'][$key]));
@@ -34,5 +45,7 @@ if($_POST['image_form_submit'] == 1)
           	</ul>
 	<?php }
 	}
+
 }
+
 ?>

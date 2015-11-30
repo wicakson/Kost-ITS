@@ -49,6 +49,6 @@ Route::get('upload-3', function () {
     return view('upload-3');
 });
 
-Route::any('upload-images', function () {
+Route::post('upload-images', function () {
     return view('upload-images');
 });

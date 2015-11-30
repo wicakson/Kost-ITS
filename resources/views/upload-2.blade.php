@@ -60,6 +60,7 @@
 	</script>
 	<script type="text/javascript">
 		$(document).ready(function(){
+			
 			$('#images').on('change',function(){
 				$('#multiple_upload_form').ajaxForm({
 					target:'#images_preview',
@@ -262,6 +263,7 @@
 		        	<h4>Upload Gambar</h4>
 			        <div class="upload_div">
 					    <form method="post" name="multiple_upload_form" id="multiple_upload_form" enctype="multipart/form-data" action="{{url()}}/upload-images">
+					    	
 					    	<input type="hidden" name="image_form_submit" value="1"/>
 					            <label>Choose Image</label>
 					            <input type="file" name="images[]" id="images" multiple >
@@ -427,6 +429,7 @@
 	    </md-sidenav>
       </section>
     </div>
+    
 					<script>
 						var html5Slider = document.getElementById('html5');
 
