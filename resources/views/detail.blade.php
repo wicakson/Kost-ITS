@@ -32,6 +32,10 @@
     <link href="{{url()}}/assets/nouislider.min.css" rel="stylesheet">
     <script src="{{url()}}/assets/nouislider.min.js"></script>
 
+    <link href="{{url()}}/assets/pgwslideshow/pgwslideshow.min.css" rel="stylesheet">
+    <script src="{{url()}}/assets/pgwslideshow/pgwslideshow.min.js"></script>
+    <script src="{{url()}}/assets/pgwslideshow/style.js"></script>
+
     <link rel="stylesheet" href="{{url()}}/assets/style.css">
     <script src="{{url()}}/assets/java.js"></script>
 
@@ -181,7 +185,27 @@
     		</md-toolbar>
     		<div style="height:64px;background-color:rgb(63, 81, 181);">
     		</div>
-    		
+
+    		<ul class="pgwSlideshow">
+			    <li><img src="{{url()}}/assets/kamar1.jpg" alt="San Francisco, USA" data-description="Golden Gate Bridge"></li>
+			    <li><img src="{{url()}}/assets/kamar1.jpg" alt="Rio de Janeiro, Brazil"></li>
+			    <li><img src="{{url()}}/assets/kamar1.jpg" alt="" data-large-src="{{url()}}/assets/kamar1.jpg"></li>
+			    <li><img src="{{url()}}/assets/kamar1.jpg" alt=""></li>
+			    <li><img src="{{url()}}/assets/kamar1.jpg" alt=""></li>
+			    <li><img src="{{url()}}/assets/kamar1.jpg" alt=""></li>
+			    <li><img src="{{url()}}/assets/kamar1.jpg" alt=""></li>
+			    <li><img src="{{url()}}/assets/kamar1.jpg" alt=""></li>
+			    <li><img src="{{url()}}/assets/kamar1.jpg" alt=""></li>
+			    <li><img src="{{url()}}/assets/kamar1.jpg" alt=""></li>
+			    <li><img src="{{url()}}/assets/kamar1.jpg" alt=""></li>
+			    <li>
+			        <a href="http://en.wikipedia.org/wiki/Monaco" target="_blank">
+			            <img src="{{url()}}/assets/kamar1.jpg" alt="Monaco">
+			        </a>
+			    </li>
+			</ul>
+
+
     		<div class="row" style="margin:0px;">
 	    		<div class="col-sm-12" ng-controller="CardCtrl">
 	    			<div ng-repeat="x in listKost" class="col-sm-4" style="margin:0px;padding:0px;">
