@@ -37,127 +37,9 @@
     <link rel="stylesheet" href="{{url()}}/assets/style.css">
     <script src="{{url()}}/assets/java.js"></script>
 
-    <script src="//connect.facebook.net/en_US/sdk.js"></script>
-
-	<script src="https://apis.google.com/js/platform.js" async defer></script>
-	<meta name="google-signin-client_id" content="114106592334-bafgar9pdomjnme4tts990q51015op7t.apps.googleusercontent.com">
-	<script>
-		function onSignIn(googleUser) {
-		  var profile = googleUser.getBasicProfile();
-		  console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
-		  console.log('Name: ' + profile.getName());
-		  console.log('Image URL: ' + profile.getImageUrl());
-		  console.log('Email: ' + profile.getEmail());
-		}
-	</script>
-	<script>
-	  function signOut() {
-	    var auth2 = gapi.auth2.getAuthInstance();
-	    auth2.signOut().then(function () {
-	      console.log('User signed out.');
-	    });
-	  }
-	</script>
-	<script type="text/javascript">
-		$(document).ready(function(){
-			
-			$('#images').on('change',function(){
-				$('#multiple_upload_form').ajaxForm({
-					target:'#images_preview',
-					beforeSubmit:function(e){
-						$('.uploading').show();
-					},
-					success:function(e){
-						$('.uploading').hide();
-					},
-					error:function(e){
-					}
-				}).submit();
-			});
-		});
-	</script>
   </head>
   <body layout="column">
 
-  	<script>
-  	  // This is called with the results from from FB.getLoginStatus().
-	  function statusChangeCallback(response) {
-	    console.log('statusChangeCallback');
-	    console.log(response);
-	    // The response object is returned with a status field that lets the
-	    // app know the current login status of the person.
-	    // Full docs on the response object can be found in the documentation
-	    // for FB.getLoginStatus().
-	    if (response.status === 'connected') {
-	      // Logged into your app and Facebook.
-	      testAPI();
-	    } else if (response.status === 'not_authorized') {
-	      // The person is logged into Facebook, but not your app.
-	      document.getElementById('status').innerHTML = 'Please log ' +
-	        'into this app.';
-	    } else {
-	      // The person is not logged into Facebook, so we're not sure if
-	      // they are logged into this app or not.
-	      document.getElementById('status').innerHTML = 'Please log ' +
-	        'into Facebook.';
-	    }
-	  }
-
-	  // This function is called when someone finishes with the Login
-	  // Button.  See the onlogin handler attached to it in the sample
-	  // code below.
-	  function checkLoginState() {
-	    FB.getLoginStatus(function(response) {
-	      statusChangeCallback(response);
-	    });
-	  }
-
-	  window.fbAsyncInit = function() {
-		  FB.init({
-		    appId      : '1723697981184571',
-		    cookie     : true,  // enable cookies to allow the server to access 
-		                        // the session
-		    xfbml      : true,  // parse social plugins on this page
-		    version    : 'v2.4' // use version 2.4
-		  });
-
-		  // Now that we've initialized the JavaScript SDK, we call 
-		  // FB.getLoginStatus().  This function gets the state of the
-		  // person visiting this page and can return one of three states to
-		  // the callback you provide.  They can be:
-		  //
-		  // 1. Logged into your app ('connected')
-		  // 2. Logged into Facebook, but not your app ('not_authorized')
-		  // 3. Not logged into Facebook and can't tell if they are logged into
-		  //    your app or not.
-		  //
-		  // These three cases are handled in the callback function.
-
-		  FB.getLoginStatus(function(response) {
-		    statusChangeCallback(response);
-		  });
-
-	  };
-
-	  // Load the SDK asynchronously
-	  (function(d, s, id) {
-	    var js, fjs = d.getElementsByTagName(s)[0];
-	    if (d.getElementById(id)) return;
-	    js = d.createElement(s); js.id = id;
-	    js.src = "//connect.facebook.net/en_US/sdk.js";
-	    fjs.parentNode.insertBefore(js, fjs);
-	  }(document, 'script', 'facebook-jssdk'));
-
-	  // Here we run a very simple test of the Graph API after login is
-	  // successful.  See statusChangeCallback() for when this call is made.
-	  function testAPI() {
-	    FB.api('/me', function(response) {
-	      document.getElementById('status').innerHTML = response.name;
-	    });
-	  }
-	  FB.logout(function(response) {
-	  });
-	</script>
     <div ng-app="sidenavDemo1" ng-controller="AppCtrl">
     	<!-- Modal -->
 		<div id="myModal" class="modal fade" role="dialog">
@@ -186,19 +68,24 @@
 					         	</md-button>
 						    </div>
 					    </form>
-					    
-					    <br><br>
+					    <br>
+					    <p style="text-align:center;">or</p>
+					    <br>
 					    <div class="row">
-					    	<div class="col-sm-6" style="padding:10px;">
-				        		<div class="fb-login-button" data-max-rows="1" data-size="large" data-auto-logout-link="false"></div>
+					    	<div class="col-sm-6">
+					    		<md-button class="md-raised" type=submit class="pull-right" style="width:100%;">
+					            	Facebook
+					         	</md-button>
 					    	</div>
-					    	<div class="col-sm-6" style="padding:10px;">
-				        		<div class="g-signin2" data-onsuccess="onSignIn"></div>
+					    	<div class="col-sm-6">
+				        		<md-button class="md-raised" type=submit class="pull-right" style="width:100%;">
+					            	Google +
+					         	</md-button>
 					    	</div>
 					    </div>
 				    </div>
 				    <div id="register" class="tab-pane fade">
-				    	<form >
+				    	<form style="padding-bottom:0px;">
 					    	<div layout layout-sm="column">
 						        <md-input-container flex style="padding-bottom: 2px;">
 						          <label>Nama</label>
@@ -319,7 +206,7 @@
 			          </md-button>
 			        </md-menu-item>
 			        <md-menu-item>
-			          <md-button onclick="FB.logout();signOut();">
+			          <md-button>
 			            	Log out
 			          </md-button>
 			        </md-menu-item>

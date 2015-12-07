@@ -39,124 +39,117 @@
     <link rel="stylesheet" href="{{url()}}/assets/style.css">
     <script src="{{url()}}/assets/java.js"></script>
 
-    <script>
-    	var map;
-    	var myCenter;
-    	var mapProp;
-    	var map;
-    	var marker=[];
-    	var infowindow;
-    	var panorama;
-    	var cek=0;
+    <script type="text/javascript">
 
-		function initialize()
-		{
-			myCenter = new google.maps.LatLng(-7.27075, 112.79546);
+		function initMap() {
+			var myCenter = new google.maps.LatLng(-7.270720622519107, 112.7955775255208);
+	    	var mapProp = {
+				    center: myCenter,
+				    zoom:18,
+				    draggable: true,
+	      			scrollwheel: false,
+	      			mapTypeControl: false,
+				    mapTypeId: google.maps.MapTypeId.ROADMAP
+			  	};
 
-		  	mapProp = {
-			    center: myCenter,
-			    zoom:18,
-			    draggable: true,
-      			scrollwheel: false,
-      			mapTypeControl: false,
-			    mapTypeId: google.maps.MapTypeId.ROADMAP
-		  	};
-
-		  	map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
-
-		  	panorama = new google.maps.StreetViewPanorama(
-			    document.getElementById('pano'), {
+			var map = new google.maps.Map(document.getElementById("map"),mapProp);
+			var panorama = new google.maps.StreetViewPanorama(
+			      document.getElementById('pano'), {
 			        position: myCenter,
-			        pov: {
-			          heading: 34,
-			          pitch: 10
-			        }
-				}
-			);
+			        visible: true
+			      });
+
+			panorama.setPov({
+			    heading: -160.88039552062182,
+			    pitch:-1.9802182077025277
+			});
+			
 			map.setStreetView(panorama);
-
-			// Create the search box and link it to the UI element.
-			var input = document.getElementById('pac-input');
-			var searchBox = new google.maps.places.SearchBox(input);
-			map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
-
-			// Bias the SearchBox results towards current map's viewport.
-			map.addListener('bounds_changed', function() {
-			    searchBox.setBounds(map.getBounds());
-			});
-
-			// [START region_getplaces]
-			// Listen for the event fired when the user selects a prediction and retrieve
-			// more details for that place.
-			searchBox.addListener('places_changed', function() {
-				var places = searchBox.getPlaces();
-
-				if (places.length == 0) {
-				    return;
-				}
-
-				// Clear out the old markers.
-				marker.forEach(function(marker) {
-				    marker.setMap(null);
-				});
-				marker = [];
-
-				// For each place, get the icon, name and location.
-				var bounds = new google.maps.LatLngBounds();
-				places.forEach(function(place) {
-					var icon = {
-				        size: new google.maps.Size(71, 71),
-				        origin: new google.maps.Point(0, 0),
-				        anchor: new google.maps.Point(17, 34),
-				        scaledSize: new google.maps.Size(25, 25)
-				    };
-
-				    // Create a marker for each place.
-				    marker.push(new google.maps.Marker({
-				        map: map,
-				        icon: icon,
-				        title: place.name,
-				        position: place.geometry.location
-				    }));
-
-				    if (place.geometry.viewport) {
-				        // Only geocodes have viewport.
-				        bounds.union(place.geometry.viewport);
-				    }
-				    else {
-				        bounds.extend(place.geometry.location);
-				    }
-				});
-				map.fitBounds(bounds);
-			});
 		}
 
-		var script;
+    </script>
 
-		function loadScript()
-		{
-			if(cek==0)
-			{
-				script = document.createElement("script");
-			  	script.type = "text/javascript";
-			  	script.src = "http://maps.googleapis.com/maps/api/js?key=&signed_in=true&sensor=false&libraries=places&callback=initialize";
-			  	document.body.appendChild(script);
-			  	cek=1;
-			}
-			else
-				return;
-		}
-
-		function codeAddress()
-		{
-
-		}
-	</script>
+    <script async defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDAcNwxRT22cVHKWUpERpYT-44uxjagsjE&libraries=places&callback=initMap&signed_in=true">
+    </script>
   </head>
   <body layout="column">
     <div ng-app="sidenavDemo1" ng-controller="AppCtrl">
+    	<!-- Modal -->
+		<div id="myModal" class="modal fade" role="dialog">
+		  <div class="modal-dialog">
+		    <!-- Modal content-->
+		    <div class="modal-content">
+		    	  <ul class="nav nav-tabs row" style="margin:0px;text-align:center;">
+				    <li class="active col-sm-6" style="padding:0px;"><a data-toggle="tab" href="#login" style="margin: 0px;border-radius: 4px 0 0 0;">Log in</a></li>
+				    <li class="col-sm-6" style="padding:0px;"><a data-toggle="tab" href="#register" style="margin: 0px;border-radius: 0 4px 0 0;">Register</a></li>
+				  </ul>
+
+				  <div class="tab-content" style="padding:25px;">
+				    <div id="login" class="tab-pane fade in active">
+				    	<form action="" method="post">
+					        <div layout layout-sm="column">
+						        <md-input-container flex style="padding-bottom: 2px;">
+						          <label>Email</label>
+						          <input>
+						        </md-input-container>
+						        <md-input-container flex style="padding-bottom: 2px;">
+						          <label>Password</label>
+						          <input>
+						        </md-input-container>
+						        <md-button class="md-raised" type=submit class="pull-right">
+					            	Log in
+					         	</md-button>
+						    </div>
+					    </form>
+					    <br>
+					    <p style="text-align:center;">or</p>
+					    <br>
+					    <div class="row">
+					    	<div class="col-sm-6">
+					    		<md-button class="md-raised" type=submit class="pull-right" style="width:100%;">
+					            	Facebook
+					         	</md-button>
+					    	</div>
+					    	<div class="col-sm-6">
+				        		<md-button class="md-raised" type=submit class="pull-right" style="width:100%;">
+					            	Google +
+					         	</md-button>
+					    	</div>
+					    </div>
+				    </div>
+				    <div id="register" class="tab-pane fade">
+				    	<form style="padding-bottom:0px;">
+					    	<div layout layout-sm="column">
+						        <md-input-container flex style="padding-bottom: 2px;">
+						          <label>Nama</label>
+						          <input>
+						        </md-input-container>
+						    </div>
+					      	<div layout layout-sm="column">
+						        <md-input-container flex style="padding-bottom: 2px;">
+						          <label>Email</label>
+						          <input>
+						        </md-input-container>
+						    </div>
+						    <div layout layout-sm="column">
+						        <md-input-container flex style="padding-bottom: 2px;">
+						          <label>Password</label>
+						          <input>
+						        </md-input-container>
+						    </div>
+						    <div class="row">
+							    <md-button class="md-raised pull-right">
+							        Register
+							    </md-button>
+						    </div>
+						</form>
+				    </div>
+				  </div>
+			</div>
+		  </div>
+		</div>
         <md-backdrop class="md-sidenav-backdrop md-opaque md-default-theme md-sidenav-backdrop-custom disabled" ng-click="checkClosingForm()"></md-backdrop>
-        <md-content>
         	<md-toolbar style="position:fixed;background-color:rgba(63, 81, 181,0.9);">
 		      <div class="md-toolbar-tools" >
 		      	<div>
@@ -205,27 +198,135 @@
 			    </li>
 			</ul>
 
-
-    		<div class="row" style="margin:0px;">
-	    		<div class="col-sm-12" ng-controller="CardCtrl">
-	    			<div ng-repeat="x in listKost" class="col-sm-4" style="margin:0px;padding:0px;">
-						<md-card>
-					      <img ng-src="{{url()}}/assets/<%x.imagePath%>" class="md-card-image" alt="Washed Out">
-					      <md-card-content>
-					        <h2 class="md-title"><%x.title%></h2>
-					        <p><%x.description%></p>
-					        <p><%x.address%></p>
-					        <p><%x.price%></p>
-					      </md-card-content>
-					      <md-card-actions layout="row" layout-align="end center">
-					        <md-button>Action 1</md-button>
-					        <md-button>Action 2</md-button>
-					      </md-card-actions>
+    		<div ng-controller="CardCtrl">
+    			<md-card>
+			      <md-card-content style="padding:0px;">
+			        <md-tabs md-dynamic-height md-border-bottom>
+				      <md-tab label="Info Properti">
+				        <md-content class="md-padding">
+				          <h4>Alamat</h4>
+				          <p>Jl. Tanah Kusir 2 No 18, Jakarta Selatan Dekat Gandaria City Pondok Indah Mal</p>
+				          <h4>Kode Pos</h4>
+				          <p>12240</p>
+				          <h4>Luas Kamar</h4>
+				          <p>3x4m2 & 4mx6m2</p>
+				          <h4>Jumlah Kamar yang Tersedia</h4>
+				          <p>8</p>
+				          <h4>Jumlah Kamar</h4>
+				          <p>10</p>
+				        </md-content>
+				      </md-tab>
+				      <md-tab label="Info Pengelola">
+				        <md-content class="md-padding">
+				          <h4>Nama</h4>
+				          <p>Nugroho Wicaksono</p>
+				          <h4>Kontak 1</h4>
+				          <p>087759775948</p>
+				          <h4>Kontak 2</h4>
+				          <p>08123380917</p>
+				          <h4>Whatsapp</h4>
+				          <p>087759775947</p>
+				          <h4>Line</h4>
+				          <p>@nwicaksono</p>
+				        </md-content>
+				      </md-tab>
+				      <md-tab label="Info Fasilitas">
+				        <md-content class="md-padding">
+				        	<h4>Fasilitas</h4>
+				            <div class="row">
+			    				<div class="col-sm-3">
+			    					<md-checkbox aria-label="Checkbox No Ink" ng-model="data.cb1" class="md-primary">
+							          Air Conditionair
+							        </md-checkbox>
+			    				</div>
+			    				<div class="col-sm-3">
+			    					<md-checkbox aria-label="Checkbox No Ink" ng-model="data.cb2" class="md-primary">
+							          TV
+							        </md-checkbox>
+			    				</div>
+			    				<div class="col-sm-3">
+			    					<md-checkbox aria-label="Checkbox No Ink" ng-model="data.cb3" class="md-primary">
+							          TV Kabel
+							        </md-checkbox>
+			    				</div>
+			    				<div class="col-sm-3">
+			    					<md-checkbox aria-label="Checkbox No Ink" ng-model="data.cb4" class="md-primary">
+							          Kamar Mandi Dalam
+							        </md-checkbox>
+			    				</div>
+			    				<div class="col-sm-3">
+			    					<md-checkbox aria-label="Checkbox No Ink" ng-model="data.cb5" class="md-primary">
+							          Internet
+							        </md-checkbox>
+			    				</div>
+						        <div class="col-sm-3">
+						        	<md-checkbox aria-label="Checkbox No Ink" ng-model="data.cb6" class="md-primary">
+							          Meja dan Kursi
+							        </md-checkbox>
+			    				</div>
+						        <div class="col-sm-3">
+						        	<md-checkbox aria-label="Checkbox No Ink" ng-model="data.cb7" class="md-primary">
+							          Kipas Angin
+							        </md-checkbox>
+			    				</div>
+			    				<div class="col-sm-3">
+			    					<md-checkbox aria-label="Checkbox No Ink" ng-model="data.cb8" class="md-primary">
+							          Lemari
+							        </md-checkbox>
+			    				</div>
+			    				<div class="col-sm-3">
+			    					<md-checkbox aria-label="Checkbox No Ink" ng-model="data.cb9" class="md-primary">
+							          Kulkas
+							        </md-checkbox>
+			    				</div>
+			    				<div class="col-sm-3">
+			    					<md-checkbox aria-label="Checkbox No Ink" ng-model="data.cb10" class="md-primary">
+							          Air Panas
+							        </md-checkbox>
+			    				</div>
+			    			</div>
+					        <h4>Jenis Penghuni</h4>
+					        <div class="row">
+					        	<div class="col-sm-3">
+					        		<md-checkbox aria-label="Checkbox No Ink" ng-model="data.cb11" class="md-primary">
+							          Khusus Perempuan
+							        </md-checkbox>
+					        	</div>
+					        	<div class="col-sm-3">
+					        		<md-checkbox aria-label="Checkbox No Ink" ng-model="data.cb12" class="md-primary">
+							          Khusus Laki-laki
+							        </md-checkbox>
+					        	</div>
+					        	<div class="col-sm-3">
+					        		<md-checkbox aria-label="Checkbox No Ink" ng-model="data.cb13" class="md-primary">
+							          Perempuan Laki-laki
+							        </md-checkbox>
+					        	</div>
+					        </div>
+				        </md-content>
+				      </md-tab>
+				      <md-tab label="Info Biaya">
+				        <md-content class="md-padding">
+				          <h4>Harian</h4>
+				          <p>Rp. 2.200.000 s/d 3.800.000</p>
+				          <h4>Bulanan</h4>
+				          <p>Rp. 2.200.000 s/d 3.800.000</p>
+				          <h4>Tahunan</h4>
+				          <p>Rp. 2.200.000 s/d 3.800.000</p>  
+				        </md-content>
+				      </md-tab>
+				      <md-tab label="Peta" onclick="initMap()">
+				      	<md-card>
+						    <div id="map" style="height: 100%;width: 100%;" ></div>
 					    </md-card>
-					</div>
-				</div>
+					    <md-card>
+						    <div id="pano" style="height: 100%;width: 100%;" ></div>
+					    </md-card>
+				      </md-tab>
+				    </md-tabs>
+			      </md-card-content>
+			    </md-card>
 			</div>
-			
         </md-content>
         
         <md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left">
@@ -257,8 +358,7 @@
 				        </md-menu-item>
 			        </a>
 			        <md-menu-item>
-			          <md-button>
-			            <md-icon md-svg-icon="{{url()}}/assets/ic_clear_black.svg" md-menu-align-target></md-icon>
+			          <md-button data-toggle="modal" data-target="#myModal">
 			            	Log in
 			          </md-button>
 			        </md-menu-item>
