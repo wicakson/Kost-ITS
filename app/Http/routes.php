@@ -12,7 +12,7 @@
 */
 
 Route::get('home', function () {
-    return view('welcome');
+    return view('index');
 });
 
 Route::get('/', function () {
@@ -52,3 +52,7 @@ Route::get('upload-3', function () {
 Route::post('upload-images', function () {
     return view('upload-images');
 });
+
+Route::get('auth/facebook', 'Auth\AuthController@redirectToProvider');
+Route::get('auth/facebook/callback', 'Auth\AuthController@handleProviderCallback');
+Route::get('loginfb','view@loginfb');

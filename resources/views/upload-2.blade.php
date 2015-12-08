@@ -73,9 +73,13 @@
 					    <br>
 					    <div class="row">
 					    	<div class="col-sm-6">
-					    		<md-button class="md-raised" type=submit class="pull-right" style="width:100%;">
+					    		
+					            	<a href="{{url()}}/auth/facebook"><div class="col-sm-6">
+				        		<md-button class="md-raised" type=submit class="pull-right" style="width:100%;">
 					            	Facebook
 					         	</md-button>
+					    	</div></a>
+					         	
 					    	</div>
 					    	<div class="col-sm-6">
 				        		<md-button class="md-raised" type=submit class="pull-right" style="width:100%;">

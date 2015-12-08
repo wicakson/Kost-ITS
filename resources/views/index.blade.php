@@ -50,7 +50,13 @@
 		        </div>
 		        <div style="width:100%;">
 		        	<h2 style="text-align:center;">
-				        <span>Kost ITS</span>
+				        <span>Kost ITS, 
+				        @if(isset($email))
+				        	{{ $email }}
+				        @endif
+
+
+				        </span>
 				    </h2>
 				</div>
 		        <span flex></span>
