@@ -56,8 +56,8 @@
 				    	<form action="" method="post">
 					        <div layout layout-sm="column">
 						        <md-input-container flex style="padding-bottom: 2px;">
-						          <label>Email</label>
-						          <input>
+									<label>Email</label>
+									<input>
 						        </md-input-container>
 						        <md-input-container flex style="padding-bottom: 2px;">
 						          <label>Password</label>
@@ -147,159 +147,111 @@
     		</div>
     		<md-card>
 		      <md-card-content>
-		        <form method="post" action="{{url()}}/upload-images">
+		        <form method="POST" action="{{url()}}/submit_upload">
+					{!! csrf_field() !!}
 					    	
 		        	<h4>Info Pengelola</h4>
 		        	<md-input-container flex>
 				        <label>Nama</label>
-				        <input>
+				        <input name="fullname">
 				    </md-input-container>
 				    <div layout layout-sm="column">
 				        <md-input-container flex>
 				          <label>Kontak 1</label>
-				          <input>
+				          <input name="contact1">
 				        </md-input-container>
 				        <md-input-container flex>
 				          <label>Kontak 2</label>
-				          <input>
+				          <input name="contact2">
 				        </md-input-container>
 				        <md-input-container flex>
 				          <label>Whatsapp</label>
-				          <input>
+				          <input name="whatsapp">
 				        </md-input-container>
 				        <md-input-container flex>
 				          <label>Line</label>
-				          <input>
+				          <input name="line">
 				        </md-input-container>
 				    </div>
 				    <h4>Info Properti</h4>
 				    <div layout layout-sm="column">
 				        <md-input-container flex>
 				          <label>Alamat</label>
-				          <input>
+				          <input name="alamat">
 				        </md-input-container>
 				        <md-input-container flex>
 				          <label>Kode Pos</label>
-				          <input>
+				          <input name="pos">
 				        </md-input-container>
 				    </div>
 				    <div layout layout-sm="column">
 				        <md-input-container flex>
 				          <label>Luas Kamar</label>
-				          <input>
+				          <input name="luas">
 				        </md-input-container>
 				        <md-input-container flex>
 				          <label>Jumlah Kamar Tersedia</label>
-				          <input>
+				          <input name="jumlahkamartersedia">
 				        </md-input-container>
 				        <md-input-container flex>
 				          <label>Jumlah Kamar</label>
-				          <input>
+				          <input name="jumlahkamar">
 				        </md-input-container>
 				    </div>
 				    <h4>Info Biaya</h4>
 				    <div layout layout-sm="column">
 				        <md-input-container flex>
 				          <label>Harian</label>
-				          <input>
+				          <input name="biayaharian">
 				        </md-input-container>
 				        <md-input-container flex>
 				          <label>Bulanan</label>
-				          <input>
+				          <input name="biayabulanan">
 				        </md-input-container>
 				        <md-input-container flex>
 				          <label>Tahunan</label>
-				          <input>
+				          <input name="biayatahunan">
 				        </md-input-container>
 				    </div>
 	    			<h4>Fasilitas</h4>
 	    			<div class="row">
-	    				<div class="col-sm-3">
-	    					<md-checkbox aria-label="Checkbox No Ink" ng-model="data.cb1" class="md-primary">
-					          Air Conditionair
-					        </md-checkbox>
-	    				</div>
-	    				<div class="col-sm-3">
-	    					<md-checkbox aria-label="Checkbox No Ink" ng-model="data.cb2" class="md-primary">
-					          TV
-					        </md-checkbox>
-	    				</div>
-	    				<div class="col-sm-3">
-	    					<md-checkbox aria-label="Checkbox No Ink" ng-model="data.cb3" class="md-primary">
-					          TV Kabel
-					        </md-checkbox>
-	    				</div>
-	    				<div class="col-sm-3">
-	    					<md-checkbox aria-label="Checkbox No Ink" ng-model="data.cb4" class="md-primary">
-					          Kamar Mandi Dalam
-					        </md-checkbox>
-	    				</div>
-	    				<div class="col-sm-3">
-	    					<md-checkbox aria-label="Checkbox No Ink" ng-model="data.cb5" class="md-primary">
-					          Internet
-					        </md-checkbox>
-	    				</div>
-				        <div class="col-sm-3">
-				        	<md-checkbox aria-label="Checkbox No Ink" ng-model="data.cb6" class="md-primary">
-					          Meja dan Kursi
-					        </md-checkbox>
-	    				</div>
-				        <div class="col-sm-3">
-				        	<md-checkbox aria-label="Checkbox No Ink" ng-model="data.cb7" class="md-primary">
-					          Kipas Angin
-					        </md-checkbox>
-	    				</div>
-	    				<div class="col-sm-3">
-	    					<md-checkbox aria-label="Checkbox No Ink" ng-model="data.cb8" class="md-primary">
-					          Lemari
-					        </md-checkbox>
-	    				</div>
-	    				<div class="col-sm-3">
-	    					<md-checkbox aria-label="Checkbox No Ink" ng-model="data.cb9" class="md-primary">
-					          Kulkas
-					        </md-checkbox>
-	    				</div>
-	    				<div class="col-sm-3">
-	    					<md-checkbox aria-label="Checkbox No Ink" ng-model="data.cb10" class="md-primary">
-					          Air Panas
-					        </md-checkbox>
-	    				</div>
+	    				@foreach($facilitys as $facilitys)
+	    					<?php $i++; ?>
+		    				<div class="col-sm-3">
+		    					<md-checkbox aria-label="Checkbox No Ink" ng-model="data.cb{{$i}}" class="md-primary" name="facilitys{{$facilitys->id}}">
+									{{$facilitys->name}}
+						        </md-checkbox>
+		    				</div>
+		    				<input type="hidden" name="facilitis{{$facilitys->id}}" value="<% data.cb{{$i}} %>">
+	    				@endforeach
+
+	    				
 	    			</div>
+
 			        <h4>Jenis Penghuni</h4>
 			        <div class="row">
-			        	<div class="col-sm-3">
-			        		<md-checkbox aria-label="Checkbox No Ink" ng-model="data.cb11" class="md-primary">
-					          Khusus Perempuan
-					        </md-checkbox>
-			        	</div>
-			        	<div class="col-sm-3">
-			        		<md-checkbox aria-label="Checkbox No Ink" ng-model="data.cb12" class="md-primary">
-					          Khusus Laki-laki
-					        </md-checkbox>
-			        	</div>
-			        	<div class="col-sm-3">
-			        		<md-checkbox aria-label="Checkbox No Ink" ng-model="data.cb13" class="md-primary">
-					          Perempuan Laki-laki
-					        </md-checkbox>
-			        	</div>
+			        	@foreach($occupants as $occupants)
+			        		<?php $i++; ?>
+			        		<div class="col-sm-3">
+				        		<md-checkbox aria-label="Checkbox No Ink" ng-model="data.cb{{$i}}" class="md-primary">
+						          {{$occupants->name}}
+						        </md-checkbox>
+				        	</div>
+				        	<input type="hidden" name="occupants{{$occupants->id}}" value="<% data.cb{{$i}} %>">
+			        	@endforeach
+			        	
 			        </div>
 			        <h4>Periode</h4>
 			        <div class="row">
-			        	<div class="col-sm-3">
-			        		<md-checkbox aria-label="Checkbox No Ink" ng-model="data.cb14" class="md-primary">
-					          Harian
-					        </md-checkbox>
-			        	</div>
-			        	<div class="col-sm-3">
-			        		<md-checkbox aria-label="Checkbox No Ink" ng-model="data.cb16" class="md-primary">
-					          Bulanan
-					        </md-checkbox>
-			        	</div>
-			        	<div class="col-sm-3">
-			        		<md-checkbox aria-label="Checkbox No Ink" ng-model="data.cb17" class="md-primary">
-					          Tahunan
-					        </md-checkbox>
-			        	</div>
+			        	@foreach($periods as $periods)
+			        		<?php $i++; ?>
+			        		<div class="col-sm-3">
+				        		<md-checkbox aria-label="Checkbox No Ink" ng-model="data.cb{{$i}}" class="md-primary">
+									{{ $periods->name }}
+						        </md-checkbox>
+				        	</div>
+				        	<input type="hidden" name="periods{{$periods->id}}" value="<% data.cb{{$i}} %>">
+			        	@endforeach
 			        </div>
 			        <md-button type="submit" class="md-raised pull-right">
 		            	<md-icon md-svg-icon="{{url()}}/assets/ic_clear_black.svg" md-menu-align-target></md-icon>

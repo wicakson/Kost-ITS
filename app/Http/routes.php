@@ -16,6 +16,7 @@ Route::get('home', function () {
 });
 
 Route::get('/', function () {
+    
     return view('index');
 });
 
@@ -37,9 +38,7 @@ Route::get('detail', function () {
     return view('detail');
 });
 
-Route::get('upload', function () {
-    return view('upload');
-});
+Route::get('upload', 'view@upload');
 
 Route::get('upload-2', function () {
     return view('upload-2');
@@ -55,4 +54,6 @@ Route::post('upload-images', function () {
 
 Route::get('auth/facebook', 'Auth\AuthController@redirectToProvider');
 Route::get('auth/facebook/callback', 'Auth\AuthController@handleProviderCallback');
-Route::get('loginfb','view@loginfb');
+Route::get('login/{provider?}','view@login');
+Route::get('logout','view@logout');
+Route::post('submit_upload','view@submit_upload');

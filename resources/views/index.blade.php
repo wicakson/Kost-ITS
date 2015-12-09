@@ -51,11 +51,9 @@
 		        <div style="width:100%;">
 		        	<h2 style="text-align:center;">
 				        <span>Kost ITS, 
-				        @if(isset($email))
-				        	{{ $email }}
-				        @endif
-
-
+				       	@if(Session::has('id'))
+				       		{{Session::get('name')}}
+				       	@endif
 				        </span>
 				    </h2>
 				</div>
@@ -224,12 +222,14 @@
 			            	Log in
 			          </md-button>
 			        </md-menu-item>
+			        <a href="{{url()}}/logout">
 			        <md-menu-item>
 			          <md-button>
 			            <md-icon md-svg-icon="{{url()}}/assets/ic_clear_black.svg" md-menu-align-target></md-icon>
 			            	Log out
 			          </md-button>
 			        </md-menu-item>
+			        </a>
 			    </md-menu-content>
 		    </md-content>
 		  </form>
