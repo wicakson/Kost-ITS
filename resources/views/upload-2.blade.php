@@ -36,7 +36,24 @@
 
     <link rel="stylesheet" href="{{url()}}/assets/style.css">
     <script src="{{url()}}/assets/java.js"></script>
-
+    <script type="text/javascript">
+		$(document).ready(function(){
+			
+			$('#images').on('change',function(){
+				$('#multiple_upload_form').ajaxForm({
+					target:'#images_preview',
+					beforeSubmit:function(e){
+						$('.uploading').show();
+					},
+					success:function(e){
+						$('.uploading').hide();
+					},
+					error:function(e){
+					}
+				}).submit();
+			});
+		});
+	</script>
   </head>
   <body layout="column">
 
@@ -167,10 +184,13 @@
 					
 				    <div class="gallery" id="images_preview"></div>
 			        <br>
+			        
 			        <md-button class="md-raised pull-right">
+			        <a href="{{url()}}/upload-3"
 		            	<md-icon md-svg-icon="{{url()}}/assets/ic_clear_black.svg" md-menu-align-target></md-icon>
 		            	Next
 		         	</md-button>
+		         	</a>
 		      </md-card-content>
 		    </md-card>
         </md-content>

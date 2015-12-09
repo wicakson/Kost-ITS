@@ -215,11 +215,16 @@
     		</div>
     		<md-card>
 		      <md-card-content>
-		        <form method="post" name="multiple_upload_form" id="multiple_upload_form" enctype="multipart/form-data" action="{{url()}}/upload-images">
+		        <form method="post" name="multiple_upload_form" id="multiple_upload_form" enctype="multipart/form-data" action="{{url()}}/upload-peta">
 			        <h4>Peta</h4>
 			        <div style="text-align:center;">
 					    <md-card>
 						    <div id="map" style="height: 100%;width: 100%;" ></div>
+						    <input type="hidden" id="lat" name="lat" value="">
+						    <input type="hidden" id="lng" name="lat" value="">
+						    <input type="hidden" id="heading-cell" name="lat" value="">
+						    <input type="hidden" id="lat" name="lat" value="">
+						    
 					    </md-card>
 					    <md-card>
 						    <div id="pano" style="height: 100%;width: 80%;" ></div>
@@ -227,10 +232,9 @@
 							    <table>
 							      <tr>
 							        <td><b>Position</b></td><td id="position-cell">&nbsp;</td>
+
 							      </tr>
-							      <tr>
-							        <td><b>POV Heading</b></td><td id="heading-cell">&nbsp;</td>
-							      </tr>
+							      
 							      <tr>
 							        <td><b>POV Pitch</b></td><td id="pitch-cell">&nbsp;</td>
 							      </tr>

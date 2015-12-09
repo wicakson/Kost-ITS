@@ -12,7 +12,7 @@ use App\Http\Controllers\AuthenticateUser;
 use Session;
 use DB;
 Use App\Models\Profile as Profile;
-
+use Input;
 class view extends Controller
 {
     /**
@@ -25,6 +25,15 @@ class view extends Controller
         $query = Contact::get();
         return view('contact-us')
             ->with('contact',$query);
+    }
+
+
+    public function upload_peta(){
+        $lat = ;
+        $lng;
+        $heading;
+        $pitch;
+
     }
 
     public function submit_upload(){
@@ -71,6 +80,8 @@ class view extends Controller
            'jumlahkamar'=>$jumlahkamar,'biayaharian'=>$biayaharian,'biayabulanan'=>$biayabulanan,'biayatahunan'=>$biayatahunan,
           'id_occupant'=>$occupants,'id_period'=>$periods,'created_at'=>$now,'updated_at'=>$now
          ]);
+
+        Session::put('id_property',$property);
         
         //echo "alamat".$alamat."<br>pos ".$pos."<br>luas ".$luas."<br>jumlahkamartersedia ".$jumlahkamartersedia."<br>jumlahkamar ".
         //$jumlahkamar."<br>biayaharian ".$biayaharian."<br>biayabulanan ".$biayabulanan."<br>biayatahunan ".$biayatahunan;
