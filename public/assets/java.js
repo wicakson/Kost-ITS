@@ -114,24 +114,73 @@ app.controller('AppCtrl', function ($scope, $timeout, $mdSidenav, $log) {
     };
   })
   .controller('Checkbox', function($scope) {
-    $scope.data = {};
-    $scope.data.cb1 = false;
-    $scope.data.cb2 = false;
-    $scope.data.cb3 = false;
-    $scope.data.cb4 = false;
-    $scope.data.cb5 = false;
-    $scope.data.cb6 = false;
-    $scope.data.cb7 = false;
-    $scope.data.cb8 = false;
-    $scope.data.cb9 = false;
-    $scope.data.cb10 = false;
-    $scope.data.cb11 = false;
-    $scope.data.cb12 = false;
-    $scope.data.cb13 = false;
-    $scope.data.cb14 = false;
-    $scope.data.cb15 = false;
-    $scope.data.cb16 = false;
-    $scope.data.cb17 = false;
+    $scope.fasilitas = [
+      {
+        name:"Air Conditioner",
+        value:"false"
+      },
+      {
+        name:"TV",
+        value:"false"
+      },
+      {
+        name:"TV Kabel",
+        value:"false"
+      },
+      {
+        name:"Kamar Mandi Dalam",
+        value:"false"
+      },
+      {
+        name:"Internet",
+        value:"true"
+      },
+      {
+        name:"Meja dan Kursi",
+        value:"false"
+      },
+      {
+        name:"Kipas Angin",
+        value:"false"
+      },
+      {
+        name:"Lemari",
+        value:"false"
+      },
+      {
+        name:"Kulkas",
+        value:"false"
+      },
+      {
+        name:"Air Panas",
+        value:"false"
+      }];
+      $scope.jenis_penghuni = [
+      {
+        name:"Khusus Perempuan",
+        value:"false"
+      },
+      {
+        name:"Khusus Laki-laki",
+        value:"false"
+      },
+      {
+        name:"Perempuan Laki-laki",
+        value:"false"
+      }];
+      $scope.periode = [
+      {
+        name:"Harian",
+        value:"false"
+      },
+      {
+        name:"Mingguan",
+        value:"false"
+      },
+      {
+        name:"Bulananan",
+        value:"false"
+      }];
   })
   .controller('SelectOptGroupController', function($scope) {
       $scope.listkecamatan = [
