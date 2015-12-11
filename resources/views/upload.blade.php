@@ -347,58 +347,16 @@
 					</div>
 				    <div ng-controller="Checkbox">
 			            <h4>Fasilitas</h4>
-			            <md-checkbox aria-label="Checkbox No Ink" ng-model="data.cb1" class="md-primary">
-				          Air Conditionair
-				        </md-checkbox>
-				        <md-checkbox aria-label="Checkbox No Ink" ng-model="data.cb2" class="md-primary">
-				          TV
-				        </md-checkbox>
-				        <md-checkbox aria-label="Checkbox No Ink" ng-model="data.cb3" class="md-primary">
-				          TV Kabel
-				        </md-checkbox>
-				        <md-checkbox aria-label="Checkbox No Ink" ng-model="data.cb4" class="md-primary">
-				          Kamar Mandi Dalam
-				        </md-checkbox>
-				        <md-checkbox aria-label="Checkbox No Ink" ng-model="data.cb5" class="md-primary">
-				          Internet
-				        </md-checkbox>
-				        <md-checkbox aria-label="Checkbox No Ink" ng-model="data.cb6" class="md-primary">
-				          Meja dan Kursi
-				        </md-checkbox>
-				        <md-checkbox aria-label="Checkbox No Ink" ng-model="data.cb7" class="md-primary">
-				          Kipas Angin
-				        </md-checkbox>
-				        <md-checkbox md-no-ink aria-label="Checkbox No Ink" ng-model="data.cb8" class="md-primary">
-				          Lemari
-				        </md-checkbox>
-				        <md-checkbox aria-label="Checkbox No Ink" ng-model="data.cb9" class="md-primary">
-				          Kulkas
-				        </md-checkbox>
-				        <md-checkbox aria-label="Checkbox No Ink" ng-model="data.cb10" class="md-primary">
-				          Air Panas
+			            <md-checkbox ng-repeat="x in fasilitas" aria-label="Checkbox No Ink" ng-model="x.value" class="md-primary">
+				          <%x.name%>
 				        </md-checkbox>
 				        <h4>Jenis Penghuni</h4>
-				        <md-checkbox aria-label="Checkbox No Ink" ng-model="data.cb11" class="md-primary">
-				          Khusus Perempuan
-				        </md-checkbox>
-				        <md-checkbox aria-label="Checkbox No Ink" ng-model="data.cb12" class="md-primary">
-				          Khusus Laki-laki
-				        </md-checkbox>
-				        <md-checkbox aria-label="Checkbox No Ink" ng-model="data.cb13" class="md-primary">
-				          Perempuan Laki-laki
+				        <md-checkbox ng-repeat="x in jenis_penghuni" aria-label="Checkbox No Ink" ng-model="x.value" class="md-primary">
+				          <%x.name%>
 				        </md-checkbox>
 				        <h4>Periode</h4>
-				        <md-checkbox aria-label="Checkbox No Ink" ng-model="data.cb14" class="md-primary">
-				          Harian
-				        </md-checkbox>
-				        <md-checkbox aria-label="Checkbox No Ink" ng-model="data.cb15" class="md-primary">
-				          Mingguan
-				        </md-checkbox>
-				        <md-checkbox aria-label="Checkbox No Ink" ng-model="data.cb16" class="md-primary">
-				          Bulanan
-				        </md-checkbox>
-				        <md-checkbox aria-label="Checkbox No Ink" ng-model="data.cb17" class="md-primary">
-				          Tahunan
+				        <md-checkbox ng-repeat="x in periode" aria-label="Checkbox No Ink" ng-model="x.value" class="md-primary">
+				          <%x.name%>
 				        </md-checkbox>
 				    </div>
 				</div>
