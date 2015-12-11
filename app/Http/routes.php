@@ -57,4 +57,4 @@ Route::get('auth/facebook/callback', 'Auth\AuthController@handleProviderCallback
 Route::get('login/{provider?}','view@login');
 Route::get('logout','view@logout');
 Route::post('submit_upload','view@submit_upload');
-Route::post('upload_map','view@upload_map');
+Route::post('upload_peta','view@upload_peta');
