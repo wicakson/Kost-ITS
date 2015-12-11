@@ -64,40 +64,27 @@
 			
 			map.setStreetView(panorama);
 
-			panorama.addListener('pano_changed', function() {
-			    var panoCell = document.getElementById('pano-cell');
-			    panoCell.innerHTML = panorama.getPano();
-			});
+			
 
-			panorama.addListener('links_changed', function() {
-			    var linksTable = document.getElementById('links_table');
-			    while (linksTable.hasChildNodes()) {
-				    linksTable.removeChild(linksTable.lastChild);
-			    }
-			    var links = panorama.getLinks();
-			    for (var i in links) {
-			        var row = document.createElement('tr');
-			        linksTable.appendChild(row);
-			        var labelCell = document.createElement('td');
-			        labelCell.innerHTML = '<b>Link: ' + i + '</b>';
-			        var valueCell = document.createElement('td');
-			        valueCell.innerHTML = links[i].description;
-			        linksTable.appendChild(labelCell);
-			        linksTable.appendChild(valueCell);
-			    }
-			});
-
+			
 			panorama.addListener('position_changed', function() {
-			    var positionCell = document.getElementById('position-cell');
-			    positionCell.firstChild.nodeValue = panorama.getPosition() + '';
+			    
+				var lat = document.getElementById('lat');
+				lat.value = panorama.position.lat() +'' ;   
+
+				var lng = document.getElementById('lng');
+			    lng.value = panorama.position.lng() +'';
+			});
+			var headingCell = document.getElementById('heading-cell');
+			    var pitchCell = document.getElementById('pitch-cell');
+			panorama.addListener('pov_changed', function() {
+			    
+			    headingCell.value = panorama.getPov().heading + '';
+			    pitchCell.value = panorama.getPov().pitch + '';
 			});
 
-			panorama.addListener('pov_changed', function() {
-			    var headingCell = document.getElementById('heading-cell');
-			    var pitchCell = document.getElementById('pitch-cell');
-			    headingCell.firstChild.nodeValue = panorama.getPov().heading + '';
-			    pitchCell.firstChild.nodeValue = panorama.getPov().pitch + '';
-			});
+			headingCell.value = panorama.getPov().heading + '';
+			pitchCell.value = panorama.getPov().pitch + '';
 		  
 		}
 
@@ -215,35 +202,14 @@
     		</div>
     		<md-card>
 		      <md-card-content>
-		        <form method="post" name="multiple_upload_form" id="multiple_upload_form" enctype="multipart/form-data" action="{{url()}}/upload-peta">
+		        <form method="post" name="multiple_upload_form" id="multiple_upload_form" enctype="multipart/form-data" action="{{url()}}/upload_map">
 			        <h4>Peta</h4>
 			        <div style="text-align:center;">
 					    <md-card>
-						    <div id="map" style="height: 100%;width: 100%;" ></div>
-						    <input type="hidden" id="lat" name="lat" value="">
-						    <input type="hidden" id="lng" name="lat" value="">
-						    <input type="hidden" id="heading-cell" name="lat" value="">
-						    <input type="hidden" id="lat" name="lat" value="">
-						    
-					    </md-card>
-					    <md-card>
-						    <div id="pano" style="height: 100%;width: 80%;" ></div>
-						    <div id="floating-panel">
-							    <table>
-							      <tr>
-							        <td><b>Position</b></td><td id="position-cell">&nbsp;</td>
-
-							      </tr>
-							      
-							      <tr>
-							        <td><b>POV Pitch</b></td><td id="pitch-cell">&nbsp;</td>
-							      </tr>
-							      <tr>
-							        <td><b>Pano ID</b></td><td id="pano-cell">&nbsp;</td>
-							      </tr>
-							      <table id="links_table"></table>
-							    </table>
-							</div>
+						    <input type="text" id='lat' name="lat" value='waca'>
+						    <input type="text" id='lng' name="lat" value='waca'>
+						    <input type="text" id='heading-cell' name="lat" value='waca'>
+						    <input type="text" id='pitch-cell' name="lat" value='waca'>
 					    </md-card>
 				    </div>
 			        <br>

@@ -28,12 +28,15 @@ class view extends Controller
     }
 
 
-    public function upload_peta(){
-        $lat = ;
-        $lng;
-        $heading;
-        $pitch;
-
+    public function upload_map(){
+        $lat = $_GET['lat'];
+        $lng = $_GET['lng'];
+        $heading = $_GET['heading'];
+        $pitch = $_GET['pitch'];
+        $now = date('Y-m-d H:i:s');
+        DB::table('maps')->insert(['id_propertys'=>Session::get('id_property'),'lat'=>$lat,'lng'=>$lng,
+            'heading'=>$heading,'pitch'=>$pitch,'created_at'=>$now,'updated_at'=>$now]);
+        return view('index');
     }
 
     public function submit_upload(){
