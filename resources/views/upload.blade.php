@@ -230,16 +230,17 @@
 
 			        <h4>Jenis Penghuni</h4>
 			        <div class="row">
+			        	<md-radio-group>
 			        	@foreach($occupants as $occupants)
 			        		<?php $i++; ?>
 			        		<div class="col-sm-3">
-				        		<md-checkbox aria-label="Checkbox No Ink" ng-model="data.cb{{$i}}" class="md-primary">
-						          {{$occupants->name}}
-						        </md-checkbox>
+			        			<md-radio-button style="margin:10px;" ng-value="<?php echo $i;?>" class="md-primary">
+			        				{{$occupants->name}}
+			        			</md-radio-button>
 				        	</div>
 				        	<input type="hidden" name="occupants{{$occupants->id}}" value="<% data.cb{{$i}} %>">
 			        	@endforeach
-			        	
+			        	</md-radio-group>
 			        </div>
 			        <h4>Periode</h4>
 			        <div class="row">
