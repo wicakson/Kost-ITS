@@ -26,8 +26,6 @@ class CreatePropertysTable extends Migration
             $table->integer('biayatahunan')->nullable();
             $table->integer('id_occupant')->unsigned();
             $table->foreign('id_occupant')->references('id')->on('occupants');
-            $table->integer('id_period')->unsigned();
-            $table->foreign('id_period')->references('id')->on('periods');
             $table->timestamps();
         });
     }

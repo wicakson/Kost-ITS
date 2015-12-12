@@ -1,12 +1,23 @@
 <?php 
-
+use \DB;
 use \Session;
 if($_POST['image_form_submit'] == 1)
 {
 
+	
 	$images_arr = array();
+
 	foreach($_FILES['images']['name'] as $key=>$val){
-		$image_name = $_FILES['images']['name'][$key];
+		
+		$user_id = Session::get('id');
+		$property_id = DB::table('propertys')->where('user_id',$user_id)->first()->id;
+		
+		
+		$temp = DB::table('relation_property_image')->where('id_propertys',$property_id)->count();
+		$image_name = $user_id.$temp.".jpg";
+
+		
+		//$image_name = $_FILES['images']['name'][$key];
 		$tmp_name 	= $_FILES['images']['tmp_name'][$key];
 		$size 		= $_FILES['images']['size'][$key];
 		$type 		= $_FILES['images']['type'][$key];
@@ -16,9 +27,13 @@ if($_POST['image_form_submit'] == 1)
 		
 		$target_dir = "assets/uploads/";
 		$target_file = $target_dir.$image_name;
+
+		
 		if(move_uploaded_file($tmp_name,$target_file)){
 			$images_arr[] = $target_file;
+			
 		}
+
 		
 
 		
@@ -27,9 +42,12 @@ if($_POST['image_form_submit'] == 1)
 		$id = DB::table('images')->insertGetId([ 'path' => $target_file , 'created_at' => $now , 'updated_at' => $now ]);
 		//echo $image_name;
 
-		DB::table('relation_image_property')->insert([ 'id_propertys' => Session::get('id_property') , 'id_images' => $id ,
-			'created_at' => $now , 'updated_at' => $now]);		
 		
+
+
+		DB::table('relation_property_image')->insert([ 'id_propertys' => $property_id , 'id_images' => $id ,
+			'created_at' => $now , 'updated_at' => $now]);		
+	
 		//echo $target_dir;
 		//echo $target_file;
 		
@@ -39,7 +57,7 @@ if($_POST['image_form_submit'] == 1)
 	}
 
 	//Generate images view
-	
+	/*
 	if(!empty($images_arr)){ 
 		$count=0;
 		foreach($images_arr as $image_src){ $count++ ?>
@@ -51,7 +69,7 @@ if($_POST['image_form_submit'] == 1)
           	</ul>
 	<?php }
 	}
-
+*/
 }
 
 ?>

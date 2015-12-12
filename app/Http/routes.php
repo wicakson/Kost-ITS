@@ -16,9 +16,10 @@ Route::get('home', function () {
 });
 
 Route::get('/', function () {
-    
     return view('index');
 });
+
+Route::get('view_upload_1','view@view_upload_1');
 
 Route::get('tes', function () {
     return view('waca');
@@ -34,12 +35,7 @@ Route::get('search-with-map', function () {
     return view('search-with-map');
 });
 
-Route::get('detail', function () {
-    return view('detail');
-});
-
-Route::get('upload', 'view@upload');
-
+Route::get('detail','view@detail');
 Route::get('upload-2', function () {
     return view('upload-2');
 });
@@ -52,9 +48,12 @@ Route::post('upload-images', function () {
     return view('upload-images');
 });
 
+Route::get('detail/{property_id?}','view@detail');
+
 Route::get('auth/facebook', 'Auth\AuthController@redirectToProvider');
 Route::get('auth/facebook/callback', 'Auth\AuthController@handleProviderCallback');
 Route::get('login/{provider?}','view@login');
 Route::get('logout','view@logout');
-Route::post('submit_upload','view@submit_upload');
+Route::get('upload_1','view@upload_1');
+Route::post('submit_upload_1','view@submit_upload_1');
 Route::post('upload_map','view@upload_map');

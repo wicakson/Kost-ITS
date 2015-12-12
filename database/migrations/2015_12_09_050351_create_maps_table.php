@@ -16,10 +16,10 @@ class CreateMapsTable extends Migration
             $table->increments('id');
             $table->integer('id_propertys')->unsigned();
             $table->foreign('id_propertys')->references('id')->on('propertys');
-            $table->float('lat');
-            $table->float('lng');
-            $table->float('heading');
-            $table->float('pitch');
+            $table->string('lat');
+            $table->string('lng');
+            $table->string('heading');
+            $table->string('pitch');
             $table->timestamps();
         });
     }

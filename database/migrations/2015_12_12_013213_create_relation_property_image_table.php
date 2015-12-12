@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateRelationImagePropertyTable extends Migration
+class CreateRelationPropertyImageTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,7 +12,7 @@ class CreateRelationImagePropertyTable extends Migration
      */
     public function up()
     {
-        Schema::create('relation_image_property', function (Blueprint $table) {
+        Schema::create('relation_property_image', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('id_propertys')->unsigned();
             $table->foreign('id_propertys')->references('id')->on('propertys');
@@ -29,6 +29,6 @@ class CreateRelationImagePropertyTable extends Migration
      */
     public function down()
     {
-        Schema::drop('relation_image_property');
+        Schema::drop('relation_property_image');
     }
 }

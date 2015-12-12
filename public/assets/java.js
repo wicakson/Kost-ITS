@@ -116,70 +116,58 @@ app.controller('AppCtrl', function ($scope, $timeout, $mdSidenav, $log) {
   .controller('Checkbox', function($scope) {
     $scope.fasilitas = [
       {
-        name:"Air Conditioner",
-        value:"false"
+        name:'Air Conditioner',
+        value:'false'
       },
       {
-        name:"TV",
-        value:"false"
+        name:'TV',
+        value:'false'
       },
       {
-        name:"TV Kabel",
-        value:"false"
+        name:'TV Kabel',
+        value:'false'
       },
       {
-        name:"Kamar Mandi Dalam",
-        value:"false"
+        name:'Kamar Mandi Dalam',
+        value:'false'
       },
       {
-        name:"Internet",
-        value:"true"
+        name:'Internet',
+        value:'true'
       },
       {
-        name:"Meja dan Kursi",
-        value:"false"
+        name:'Meja dan Kursi',
+        value:'false'
       },
       {
-        name:"Kipas Angin",
-        value:"false"
+        name:'Kipas Angin',
+        value:'false'
       },
       {
-        name:"Lemari",
-        value:"false"
+        name:'Lemari',
+        value:'false'
       },
       {
-        name:"Kulkas",
-        value:"false"
+        name:'Kulkas',
+        value:'false'
       },
       {
-        name:"Air Panas",
-        value:"false"
+        name:'Air Panas',
+        value:'false'
       }];
-      $scope.jenis_penghuni = [
-      {
-        name:"Khusus Perempuan",
-        value:"false"
-      },
-      {
-        name:"Khusus Laki-laki",
-        value:"false"
-      },
-      {
-        name:"Perempuan Laki-laki",
-        value:"false"
-      }];
+      $scope.jenis_penghuni;
       $scope.periode = [
       {
-        name:"Harian",
-        value:"false"
+        name:'Harian',
+        value:'false'
       },
       {
-        name:"Mingguan",
-        value:"false"
+        name:'Mingguan',
+        value:'false'
       },
       {
-        name:"Bulananan",
-        value:"false"
+        name:'Bulananan',
+        value:'false'
       }];
   })
   .controller('SelectOptGroupController', function($scope) {
