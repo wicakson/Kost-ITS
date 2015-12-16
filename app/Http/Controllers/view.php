@@ -20,6 +20,7 @@ use App\Models\Occupant as Occupant;
 use App\Models\Property as Property;
 use Input;
 use Redirect;
+
 class view extends Controller
 {
     /**
