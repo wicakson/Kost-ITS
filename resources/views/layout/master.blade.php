@@ -233,12 +233,15 @@
 				    				<md-radio-button flex value="search" class="md-primary" style="margin:10px;" >
 							        	Search
 							        </md-radio-button>
+							        
 				    			</div>
 				    			<div class="col-sm-8">
 				    				<md-radio-button flex value="search-with-map" class="md-primary" style="margin:10px;" >
 							        	Search with map
 							        </md-radio-button>
+
 				    			</div>
+				    			<input type="hidden" name="search" value="<% data.rd1 %>">
 				    		</div>
 				        </md-radio-group>
 			        </div>
@@ -248,48 +251,55 @@
 						</div>
 						<div class="col-sm-6">
 							<md-input-container style="padding:6px 2px 2px 2px;">
-								<input type="number" min="0" max="5000000" step="100000" id="input-number-1">
+								<input name="batas_bawah" type="number" min="0" max="5000000" step="100000" id="input-number-1">
 							</md-input-container>
+
 						</div>
 						<div class="col-sm-6">
 							<md-input-container style="padding:6px 2px 2px 2px;">
-								<input type="number" min="0" max="5000000" step="100000" id="input-number-2">
+								<input name="batas_atas" type="number" min="0" max="5000000" step="100000" id="input-number-2">
 							</md-input-container>
 						</div>
 					</div>
 					<h4>Periode</h4>
 			        <div ng-controller="Radio">
 				    	<md-radio-group ng-model="data.rd3" >
-				        	<md-radio-button flex value="h" class="md-primary" style="margin:10px;" >
+				        	<md-radio-button flex value="biayaharian" class="md-primary" style="margin:10px;" >
 					        	Harian
 					        </md-radio-button>
-					        <md-radio-button flex value="b" class="md-primary" style="margin:10px;" >
+					        <md-radio-button flex value="biayabulanan" class="md-primary" style="margin:10px;" >
 					        	Bulanan
 					        </md-radio-button>
-					        <md-radio-button flex value="t" class="md-primary" style="margin:10px;" >
+					        <md-radio-button flex value="biayatahunan" class="md-primary" style="margin:10px;" >
 					        	Tahunan
 					        </md-radio-button>
 				        </md-radio-group>
+				        
+				        <input type="hidden" name="periode" value="<% data.rd3 %>">
 			        </div>
 				    <h4>Fasilitas</h4>
 			        <div ng-controller="Checkbox">
-    					<md-checkbox ng-repeat="x in fasilitas" ng-model="x.value" class="md-primary">
-				        	<% x.name %>
-				        </md-checkbox>
+			        	<div ng-repeat="x in fasilitas">
+	    					<md-checkbox ng-model="x.value" class="md-primary">
+					        	<% x.name %>
+					        </md-checkbox>
+				        	<input type="hidden" name="fasilitas<% x.id %>" value="<% x.value %>">
+				        </div>
 				    </div>
 				    <h4>Jenis Penghuni</h4>
 			        <div ng-controller="Radio">
 				    	<md-radio-group ng-model="data.rd2" >
-				        	<md-radio-button flex value="p" class="md-primary" style="margin:10px;" >
+				        	<md-radio-button flex value="1" class="md-primary" style="margin:10px;" >
 					        	Khusus Perempuan
 					        </md-radio-button>
-					        <md-radio-button flex value="l" class="md-primary" style="margin:10px;" >
+					        <md-radio-button flex value="2" class="md-primary" style="margin:10px;" >
 					        	Khusus Laki-laki
 					        </md-radio-button>
-					        <md-radio-button flex value="pl" class="md-primary" style="margin:10px;" >
+					        <md-radio-button flex value="3" class="md-primary" style="margin:10px;" >
 					        	Perempuan Laki-laki
 					        </md-radio-button>
 				        </md-radio-group>
+				        <input type="hidden" name="jenis_penghuni" value="<% data.rd2 %>">
 			        </div>
 				</div>
 	          </md-content>

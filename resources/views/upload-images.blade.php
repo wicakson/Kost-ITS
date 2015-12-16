@@ -57,7 +57,7 @@ if($_POST['image_form_submit'] == 1)
 	}
 
 	//Generate images view
-	/*
+	
 	if(!empty($images_arr)){ 
 		$count=0;
 		foreach($images_arr as $image_src){ $count++ ?>
@@ -69,7 +69,7 @@ if($_POST['image_form_submit'] == 1)
           	</ul>
 	<?php }
 	}
-*/
+
 }
 
 ?>

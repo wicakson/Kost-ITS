@@ -35,6 +35,66 @@ class view extends Controller
             ->with('contact',$query);
     }
 
+    public function search(){
+        $search = $_GET['search'];
+        $batas_bawah = $_GET['batas_bawah'];
+        $batas_atas = $_GET['batas_atas'];
+        $periods = $_GET['periode'];
+        $occupants = $_GET['jenis_penghuni'];            
+               
+        
+        
+        
+
+
+        $query2 = Property::where($periods,'>=',$batas_bawah)
+                ->where($periods,'<=',$batas_atas)
+                ->where('id_occupant',$occupants);
+
+        
+        $query2 = $query2->where(function ($query) {
+            $j=0;
+            $a = Property::join('relation_property_facility','propertys.id','=', 'Relation_Property_Facility.id_propertys');
+            for($i=1 ; $i<=10 ; $i++){
+                if($_GET['fasilitas'.$i] === "true"){
+                        if($j==0){
+                            $query1 = Relation_Property_Facility::where('id_facilities',$i);
+                            $j++;
+                        }
+                        else{
+                            $query1 = $query1->orWhere('id_facilities',$i);
+                        }
+                }
+            }
+            $query1 = $query1->orderBy('id_propertys', 'asc')->get();
+            
+
+            $id = array();
+
+            $j = 0;
+            $i=0;
+            foreach($query1 as $query1){
+
+                if($query1->id_propertys > $j){
+
+                    $j++;
+                    $id[$i] = $query1->id_propertys;
+                    $i++;
+                }
+            }
+
+            foreach($id as $a_value){
+
+                $query->orWhere('id',$a_value);
+                $j++;
+            }
+        });
+
+        $hasil =  $query2->get();
+        return view('search')->with('search',$hasil);
+        
+    }
+
 
     public function upload_map(){
         $user_id = Session::get('id');
@@ -51,6 +111,9 @@ class view extends Controller
 
     public function detail($property_id = null ){
        
+        if($property_id == null){
+            $property_id = Property::where('user_id',Session::get('id'))->first()->id;
+        }
         
         $property = Property::where('id',$property_id)->first();
         $facility = Facility::get();

@@ -27,9 +27,7 @@ Route::get('tes', function () {
 
 Route::get('contact-us', 'view@contact_us');
 
-Route::get('search', function () {
-    return view('search');
-});
+
 
 Route::get('search-with-map', function () {
     return view('search-with-map');
@@ -57,3 +55,4 @@ Route::get('logout','view@logout');
 Route::get('upload_1','view@upload_1');
 Route::post('submit_upload_1','view@submit_upload_1');
 Route::post('upload_map','view@upload_map');
+Route::get('search','view@search');

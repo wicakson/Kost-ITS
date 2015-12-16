@@ -118,51 +118,61 @@ app.controller('AppCtrl', function ($scope, $timeout, $mdSidenav, $log) {
   .controller('Checkbox', function($scope) {
     $scope.fasilitas = [
       {
+        id:'1',
         name:'Air Conditioner',
-        value:'true'
+        value:false
       },
       {
+        id:'2',
         name:'TV',
-        value:'false'
+        value:false
       },
       {
+        id:'3',
         name:'TV Kabel',
-        value:'false'
+        value:false
       },
       {
+        id:'4',
         name:'Kamar Mandi Dalam',
-        value:'false'
+        value:false
       },
       {
+        id:'5',
         name:'Internet',
-        value:'true'
+        value:false
       },
       {
+        id:'6',
         name:'Meja dan Kursi',
-        value:'false'
+        value:true
       },
       {
+        id:'7',
         name:'Kipas Angin',
-        value:'false'
+        value:false
       },
       {
+        id:'8',
         name:'Lemari',
-        value:'false'
+        value:false
       },
       {
+        id:'9',
         name:'Kulkas',
-        value:'false'
+        value:false
       },
       {
+        id:'10',
         name:'Air Panas',
-        value:'false'
+        value:false
       }];
   })
   .controller('Radio', function($scope) {
     $scope.data = {};
     $scope.data.rd1 = "search";
-    $scope.data.rd2 = "pl";
-    $scope.data.rd3 = "t";
+    $scope.data.rd2 = "3";
+    $scope.data.rd3 = "biayatahunan";
   })
   .controller('SelectOptGroupController', function($scope) {
       $scope.listkecamatan = [
