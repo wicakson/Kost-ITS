@@ -123,7 +123,7 @@
     				@foreach($search as $search)
     					<div class="col-sm-4" style="margin:0px;padding:0px;">
 							<md-card>
-						      <img src="{{url()}}/assets/uploads/{{Session::get('id')}}0.jpg" class="md-card-image" alt="Washed Out">
+						      <img src="{{url()}}/assets/uploads/{{$search->id}}0.jpg" class="md-card-image" alt="Washed Out">
 						      <md-card-content class="limit-text">
 						        <p>
 						        	{{$search->alamat}}

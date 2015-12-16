@@ -49,7 +49,7 @@
 					    </div>
 
 					    <div class="item" onmouseover="tooltip.pop(this, '#tip4', {position:0})">
-					        <a href="{{url()}}/detail/4"><img src="{{url()}}/assets/kamar4.jpg" alt="Flower" width="100%"></a>
+					        <a href="{{url()}}/detail/2"><img src="{{url()}}/assets/kamar2.jpg" alt="Flower" width="100%"></a>
 					    </div>
 					    
 				    </div>

@@ -14,7 +14,7 @@ if($_POST['image_form_submit'] == 1)
 		
 		
 		$temp = DB::table('relation_property_image')->where('id_propertys',$property_id)->count();
-		$image_name = $user_id.$temp.".jpg";
+		$image_name = $property_id.$temp.".jpg";
 
 		
 		//$image_name = $_FILES['images']['name'][$key];
