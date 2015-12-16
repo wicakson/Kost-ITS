@@ -48,6 +48,7 @@ app.controller('AppCtrl', function ($scope, $timeout, $mdSidenav, $log) {
     function buildDelayedToggler(navID) {
       return debounce(function() {
         $("body").css({ position: 'fixed' });
+        $("body").css({ width: '100%' });
         $mdSidenav(navID).toggle()
           .then(function () {
             $log.debug("toggle " + navID + " is done");
@@ -56,7 +57,8 @@ app.controller('AppCtrl', function ($scope, $timeout, $mdSidenav, $log) {
     }
     function buildToggler(navID) {
       return function() {
-        if(navID=='right') $("body").css({ position: 'fixed' });
+        $("body").css({ position: 'fixed' });
+        $("body").css({ width: '100%' });
         $mdSidenav(navID).toggle()
           .then(function () {
             if(navID=='right') {
@@ -117,7 +119,7 @@ app.controller('AppCtrl', function ($scope, $timeout, $mdSidenav, $log) {
     $scope.fasilitas = [
       {
         name:'Air Conditioner',
-        value:'false'
+        value:'true'
       },
       {
         name:'TV',
@@ -155,20 +157,12 @@ app.controller('AppCtrl', function ($scope, $timeout, $mdSidenav, $log) {
         name:'Air Panas',
         value:'false'
       }];
-      $scope.jenis_penghuni;
-      $scope.periode = [
-      {
-        name:'Harian',
-        value:'false'
-      },
-      {
-        name:'Mingguan',
-        value:'false'
-      },
-      {
-        name:'Bulananan',
-        value:'false'
-      }];
+  })
+  .controller('Radio', function($scope) {
+    $scope.data = {};
+    $scope.data.rd1 = "search";
+    $scope.data.rd2 = "pl";
+    $scope.data.rd3 = "t";
   })
   .controller('SelectOptGroupController', function($scope) {
       $scope.listkecamatan = [

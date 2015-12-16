@@ -211,45 +211,37 @@
 							</md-menu-item>
 						</a>
 			        @endif
-			        
-			            
-			            	
-			        
-			        
 			    </md-menu-content>
 		    </md-content>
 		  </form>
         </md-sidenav>
 
-
-
-
-        <!--ng-controller="SelectOptGroupController"-->
         <md-sidenav class="md-sidenav-right md-whiteframe-z2" md-component-id="right">
         	<form action="search" method="get" style="margin:0px;">
         	  <md-toolbar class="md-theme-left">
 	            <h1 class="md-toolbar-tools">Pencarian Lanjut</h1>
 	          </md-toolbar>
 	          <md-content ng-controller="LeftCtrl" style="padding:0px;">
-	          	<md-menu-content style="padding:0px;">
-	          		<a href="{{url()}}/search" style="color:black;text-decoration:none;">
-		          		<md-menu-item>
-				          <md-button type="submit">
-				            <md-icon md-svg-icon="{{url()}}/assets/ic_clear_black.svg" md-menu-align-target></md-icon>
-				            	Search
-				          </md-button>
-				        </md-menu-item>
-			        </a>
-			        <a href="{{url()}}/search-with-map" style="color:black;text-decoration:none;">
-				        <md-menu-item>
-				          <md-button type="submit">
-				            <md-icon md-svg-icon="{{url()}}/assets/ic_clear_black.svg" md-menu-align-target></md-icon>
-				            <p>Search with map</p>
-				          </md-button>
-				        </md-menu-item>
-			        </a>
-			    </md-menu-content>
 			    <div layout-padding>
+			    	<div class="row" style="margin:0px;">
+			    		<md-button class="col-sm-12 md-raised md-primary" style="margin:0px;">Search</md-button>
+			    	</div>
+			    	<div ng-controller="Radio">
+				    	<md-radio-group ng-model="data.rd1" >
+				    		<div class="row">
+				    			<div class="col-sm-4">
+				    				<md-radio-button flex value="search" class="md-primary" style="margin:10px;" >
+							        	Search
+							        </md-radio-button>
+				    			</div>
+				    			<div class="col-sm-8">
+				    				<md-radio-button flex value="search-with-map" class="md-primary" style="margin:10px;" >
+							        	Search with map
+							        </md-radio-button>
+				    			</div>
+				    		</div>
+				        </md-radio-group>
+			        </div>
 		            <h4>Harga</h4>
 		            <div class="row" style="margin:10px;">
 						<div class="col-sm-12" id="html5">
@@ -265,62 +257,40 @@
 							</md-input-container>
 						</div>
 					</div>
-				    <div ng-controller="Checkbox">
-			            <h4>Fasilitas</h4>
-			            <md-checkbox md-no-ink aria-label="Checkbox No Ink" ng-model="data.cb1" class="md-primary">
-				          Air Conditionair
-				        </md-checkbox>
-				        <md-checkbox md-no-ink aria-label="Checkbox No Ink" ng-model="data.cb2" class="md-primary">
-				          TV
-				        </md-checkbox>
-				        <md-checkbox md-no-ink aria-label="Checkbox No Ink" ng-model="data.cb3" class="md-primary">
-				          TV Kabel
-				        </md-checkbox>
-				        <md-checkbox md-no-ink aria-label="Checkbox No Ink" ng-model="data.cb4" class="md-primary">
-				          Kamar Mandi Dalam
-				        </md-checkbox>
-				        <md-checkbox md-no-ink aria-label="Checkbox No Ink" ng-model="data.cb5" class="md-primary">
-				          Internet
-				        </md-checkbox>
-				        <md-checkbox md-no-ink aria-label="Checkbox No Ink" ng-model="data.cb6" class="md-primary">
-				          Meja dan Kursi
-				        </md-checkbox>
-				        <md-checkbox md-no-ink aria-label="Checkbox No Ink" ng-model="data.cb7" class="md-primary">
-				          Kipas Angin
-				        </md-checkbox>
-				        <md-checkbox md-no-ink aria-label="Checkbox No Ink" ng-model="data.cb8" class="md-primary">
-				          Lemari
-				        </md-checkbox>
-				        <md-checkbox md-no-ink aria-label="Checkbox No Ink" ng-model="data.cb9" class="md-primary">
-				          Kulkas
-				        </md-checkbox>
-				        <md-checkbox md-no-ink aria-label="Checkbox No Ink" ng-model="data.cb10" class="md-primary">
-				          Air Panas
-				        </md-checkbox>
-				        <h4>Jenis Penghuni</h4>
-				        <md-checkbox md-no-ink aria-label="Checkbox No Ink" ng-model="data.cb11" class="md-primary">
-				          Khusus Perempuan
-				        </md-checkbox>
-				        <md-checkbox md-no-ink aria-label="Checkbox No Ink" ng-model="data.cb12" class="md-primary">
-				          Khusus Laki-laki
-				        </md-checkbox>
-				        <md-checkbox md-no-ink aria-label="Checkbox No Ink" ng-model="data.cb13" class="md-primary">
-				          Perempuan Laki-laki
-				        </md-checkbox>
-				        <h4>Periode</h4>
-				        <md-checkbox md-no-ink aria-label="Checkbox No Ink" ng-model="data.cb14" class="md-primary">
-				          Harian
-				        </md-checkbox>
-				        <md-checkbox md-no-ink aria-label="Checkbox No Ink" ng-model="data.cb15" class="md-primary">
-				          Mingguan
-				        </md-checkbox>
-				        <md-checkbox md-no-ink aria-label="Checkbox No Ink" ng-model="data.cb16" class="md-primary">
-				          Bulanan
-				        </md-checkbox>
-				        <md-checkbox md-no-ink aria-label="Checkbox No Ink" ng-model="data.cb17" class="md-primary">
-				          Tahunan
+					<h4>Periode</h4>
+			        <div ng-controller="Radio">
+				    	<md-radio-group ng-model="data.rd3" >
+				        	<md-radio-button flex value="h" class="md-primary" style="margin:10px;" >
+					        	Harian
+					        </md-radio-button>
+					        <md-radio-button flex value="b" class="md-primary" style="margin:10px;" >
+					        	Bulanan
+					        </md-radio-button>
+					        <md-radio-button flex value="t" class="md-primary" style="margin:10px;" >
+					        	Tahunan
+					        </md-radio-button>
+				        </md-radio-group>
+			        </div>
+				    <h4>Fasilitas</h4>
+			        <div ng-controller="Checkbox">
+    					<md-checkbox ng-repeat="x in fasilitas" ng-model="x.value" class="md-primary">
+				        	<% x.name %>
 				        </md-checkbox>
 				    </div>
+				    <h4>Jenis Penghuni</h4>
+			        <div ng-controller="Radio">
+				    	<md-radio-group ng-model="data.rd2" >
+				        	<md-radio-button flex value="p" class="md-primary" style="margin:10px;" >
+					        	Khusus Perempuan
+					        </md-radio-button>
+					        <md-radio-button flex value="l" class="md-primary" style="margin:10px;" >
+					        	Khusus Laki-laki
+					        </md-radio-button>
+					        <md-radio-button flex value="pl" class="md-primary" style="margin:10px;" >
+					        	Perempuan Laki-laki
+					        </md-radio-button>
+				        </md-radio-group>
+			        </div>
 				</div>
 	          </md-content>
 		    </form>
