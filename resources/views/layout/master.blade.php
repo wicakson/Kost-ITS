@@ -36,7 +36,8 @@
   </head>
   <body layout="column">
     <div ng-app="sidenavDemo1" ng-controller="AppCtrl">
-      <md-backdrop class="md-sidenav-backdrop md-opaque md-default-theme md-sidenav-backdrop-custom disabled" ng-click="checkClosingForm()"></md-backdrop>
+      <md-backdrop class="md-sidenav-backdrop md-opaque md-default-theme md-sidenav-backdrop-custom disabled right" ng-click="checkClosingForm()"></md-backdrop>
+      <md-backdrop class="md-sidenav-backdrop md-opaque md-default-theme md-sidenav-backdrop-custom disabled left" ng-click="checkClosingForm2()"></md-backdrop>
         <md-content>
         	<md-toolbar style="position:fixed;background-color:rgba(63, 81, 181,0.9);">
 		      <div class="md-toolbar-tools" >
@@ -50,7 +51,8 @@
 		        </div>
 		        <div style="width:100%;">
 		        	<h2 style="text-align:center;">
-				        <span>Kost ITS</span>
+		        		<img ng-src="{{url()}}/assets/logo.png" style="width:40px;height:40px;">
+				        <span>	Kost ITS</span>
 				    </h2>
 				</div>
 		        <span flex></span>

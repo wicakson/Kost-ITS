@@ -17,13 +17,27 @@ app.controller('AppCtrl', function ($scope, $timeout, $mdSidenav, $log) {
         $("body").css({ position: 'static' });
         $scope.keepOpen = !$scope.keepOpen;
         if ($scope.keepOpen)
-          angular.element('md-backdrop.md-sidenav-backdrop-custom').removeClass('disabled');
+          angular.element('md-backdrop.right').removeClass('disabled');
         else
-          angular.element('md-backdrop.md-sidenav-backdrop-custom').addClass('disabled');
+          angular.element('md-backdrop.right').addClass('disabled');
         });   
     };
+    function toggleLeft(){
+      $mdSidenav('left').toggle().then(function () {
+        $("body").css({ position: 'static' });
+        $scope.keepOpen = !$scope.keepOpen;
+        if ($scope.keepOpen)
+          angular.element('md-backdrop.left').removeClass('disabled');
+        else
+          angular.element('md-backdrop.left').addClass('disabled');
+        });   
+    };
+
     $scope.checkClosingForm = function(){
       toggleRight();
+    };
+    $scope.checkClosingForm2 = function(){
+      toggleLeft();
     };
     /**
      * Supplies a function that will continue to operate until the
@@ -64,9 +78,16 @@ app.controller('AppCtrl', function ($scope, $timeout, $mdSidenav, $log) {
             if(navID=='right') {
               $scope.keepOpen = !$scope.keepOpen;
               if ($scope.keepOpen)
-                  angular.element('md-backdrop.md-sidenav-backdrop-custom').removeClass('disabled');
+                  angular.element('md-backdrop.right').removeClass('disabled');
               else
-                  angular.element('md-backdrop.md-sidenav-backdrop-custom').addClass('disabled');
+                  angular.element('md-backdrop.right').addClass('disabled');
+            }
+            else {
+              $scope.keepOpen = !$scope.keepOpen;
+              if ($scope.keepOpen)
+                  angular.element('md-backdrop.left').removeClass('disabled');
+              else
+                  angular.element('md-backdrop.left').addClass('disabled');
             }
             $log.debug("toggle " + navID + " is done");
           });
@@ -118,61 +139,51 @@ app.controller('AppCtrl', function ($scope, $timeout, $mdSidenav, $log) {
   .controller('Checkbox', function($scope) {
     $scope.fasilitas = [
       {
-        id:'1',
         name:'Air Conditioner',
-        value:false
+        value:'true'
       },
       {
-        id:'2',
         name:'TV',
-        value:false
+        value:'false'
       },
       {
-        id:'3',
         name:'TV Kabel',
-        value:false
+        value:'false'
       },
       {
-        id:'4',
         name:'Kamar Mandi Dalam',
-        value:false
+        value:'false'
       },
       {
-        id:'5',
         name:'Internet',
-        value:false
+        value:'true'
       },
       {
-        id:'6',
         name:'Meja dan Kursi',
-        value:true
+        value:'false'
       },
       {
-        id:'7',
         name:'Kipas Angin',
-        value:false
+        value:'false'
       },
       {
-        id:'8',
         name:'Lemari',
-        value:false
+        value:'false'
       },
       {
-        id:'9',
         name:'Kulkas',
-        value:false
+        value:'false'
       },
       {
-        id:'10',
         name:'Air Panas',
-        value:false
+        value:'false'
       }];
   })
   .controller('Radio', function($scope) {
     $scope.data = {};
     $scope.data.rd1 = "search";
-    $scope.data.rd2 = "3";
-    $scope.data.rd3 = "biayatahunan";
+    $scope.data.rd2 = "pl";
+    $scope.data.rd3 = "t";
   })
   .controller('SelectOptGroupController', function($scope) {
       $scope.listkecamatan = [
