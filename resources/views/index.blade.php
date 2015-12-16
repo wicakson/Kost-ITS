@@ -30,26 +30,30 @@
 
 				    <!-- Wrapper for slides -->
 				    <div class="carousel-inner" role="listbox">
+				    <a href="{{url()}}/detail/1">
 				      	<div class="limit-text carousel-caption" style="background-color:rgba(17,16,16,0.5);bottom:initial;right:25%;left:25%;padding:5px;">
 				      		<h3>Pilihan Kami</h3>
 				      	</div>
-
+				      	 </a>
+				      	
 					    <div class="item active" onmouseover="tooltip.pop(this, '#tip1', {position:0})">
-					        <img src="{{url()}}/assets/kamar1.jpg" alt="Chania" width="100%">
+					        <a href="{{url()}}/detail/1"><img src="{{url()}}/assets/kamar1.jpg" alt="Chania" width="100%"></a>
 					    </div>
 
 					    <div class="item" onmouseover="tooltip.pop(this, '#tip2', {position:0})">
-					        <img src="{{url()}}/assets/kamar2.jpg" alt="Chania" width="100%">
+					        <a href="{{url()}}/detail/2"><img src="{{url()}}/assets/kamar2.jpg" alt="Chania" width="100%"></a>
 					    </div>
 					    
 					    <div class="item" onmouseover="tooltip.pop(this, '#tip3', {position:0})">
-					        <img src="{{url()}}/assets/kamar3.jpg" alt="Flower" width="100%">
+					        <a href="{{url()}}/detail/3"><img src="{{url()}}/assets/kamar3.jpg" alt="Flower" width="100%"></a>
 					    </div>
 
 					    <div class="item" onmouseover="tooltip.pop(this, '#tip4', {position:0})">
-					        <img src="{{url()}}/assets/kamar2.jpg" alt="Flower" width="100%">
+					        <a href="{{url()}}/detail/4"><img src="{{url()}}/assets/kamar4.jpg" alt="Flower" width="100%"></a>
 					    </div>
+					    
 				    </div>
+				   
 				  </div>
 			    </md-card-content>
 			</md-card>
@@ -68,27 +72,29 @@
 
 				    <!-- Wrapper for slides -->
 				    <div class="carousel-inner" role="listbox">
-
+				    	
 				    	<div class="limit-text carousel-caption" style="background-color:rgba(17,16,16,0.5);bottom:initial;right:25%;left:25%;padding:5px;">
 				      		<h3>Favorit</h3>
 				      	</div>
-
+				      	 
 					    <div class="item active">
-					        <img src="{{url()}}/assets/kamar1.jpg" width="100%">
+					        <a href="{{url()}}/detail/1"><img src="{{url()}}/assets/kamar1.jpg" width="100%"></a>
 					    </div>
 
 					    <div class="item">
-					        <img src="{{url()}}/assets/kamar2.jpg" width="100%">
+					        <a href="{{url()}}/detail/2"><img src="{{url()}}/assets/kamar2.jpg" width="100%"></a>
 					    </div>
 
 					    <div class="item">
-					        <img src="{{url()}}/assets/kamar3.jpg" width="100%">
+					        <a href="{{url()}}/detail/3"><img src="{{url()}}/assets/kamar3.jpg" width="100%"></a>
 					    </div>
 
 					    <div class="item">
-					        <img src="{{url()}}/assets/kamar2.jpg" width="100%">
+					        <a href="{{url()}}/detail/4"><img src="{{url()}}/assets/kamar2.jpg" width="100%"></a>
 					    </div>
 				    </div>
+					   
+
 				  </div>
 			    </md-card-content>
 			</md-card>
